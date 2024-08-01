@@ -16,18 +16,18 @@ public class Hooks {
     public static void setup() {
         // Any global setup for web testing
         PropertyLoader.getInstance().setBrowser(Constants.Browser.CHROME);
-        PropertyLoader.getInstance().setBaseUrl("TODO: url to test");
+        PropertyLoader.getInstance().setBaseUrl("https://bonigarcia.dev/selenium-webdriver-java/");
     }
 
     @Before
-    public void beforeTest() {
+    public static void beforeTest() {
         DriverProvider driverProvider = new DriverProvider();
         WebDriver driver = driverProvider.getDriver();
         DriverManager.setDriver(driver);
     }
 
     @After
-    public void afterTest() {
+    public static void afterTest() {
         WebDriver driver = DriverManager.getDriver();
         if (driver != null) {
             driver.quit();
@@ -36,7 +36,7 @@ public class Hooks {
     }
 
     @AfterAll
-    public static void tearDown() {
+    public static void teardown() {
         // Any global cleanup after all tests
     }
 }

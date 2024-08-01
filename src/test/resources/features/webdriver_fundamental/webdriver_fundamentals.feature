@@ -5,8 +5,7 @@ Feature: WebDriver Fundamentals
 
 
   Scenario Outline: Click the button to navigate to the specific page related to that content.
-
-    When the user clicks the button named "<button_name>" in Section 3
+    When the user clicks the button named "<button_name>" in Section three
     Then the user is navigated to the "<target_page>" page
 
     Examples:
