@@ -1,4 +1,4 @@
-Feature: WebDriver Fundamentals
+Feature: Home
 
   Background:
     Given the user is on the "https://bonigarcia.dev/selenium-webdriver-java/" page

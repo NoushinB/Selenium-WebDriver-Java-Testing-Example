@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class WebDriverStepDefinitions {
+public class HomeStepDefinitions {
 
     @Given("the user is on the {string} page")
     public void theUserIsOnThePage(String page) {
