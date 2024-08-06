@@ -46,7 +46,7 @@ public class DriverProvider {
      * Initializes the ChromeDriver.
      */
     private void initializeChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "D:/drivers/chromedriver-win64_v127/chromedriver-win64/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:/dev/drivers/chromedriver-win64/chromedriver.exe");
         driver = new ChromeDriver();
     }
 
