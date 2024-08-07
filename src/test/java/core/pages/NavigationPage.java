@@ -15,5 +15,27 @@ public class NavigationPage extends BasePage {
     @FindBy(xpath = ("//a[text()='3']"))
     private WebElement btnThree;
     @FindBy(xpath = ("//a[text()='Next']"))
-    private WebElement NextBtn;
+    private WebElement nextBtn;
+    public NavigationPage(){}
+
+    public void clickPreviousBtn() {
+        previousBtn.click();
+
+    }
+
+    public void clickButtonOne() {
+        btnOne.click();
+    }
+
+    public void clickButtonTwo() {
+        btnTwo.click();
+    }
+
+    public void clickButtonThree() {
+        btnThree.click();
+    }
+
+    public void clickNextButton() {
+        nextBtn.click();
+    }
 }
