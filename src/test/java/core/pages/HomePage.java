@@ -75,5 +75,14 @@ public class HomePage extends BasePage {
     @FindBy(xpath = ("//a[text()='Data types']"))
     private WebElement dataTypesBtn;
 
+    public void clickOnButton(String buttonName){
+        getButton(buttonName).click();
+    }
 
+    private WebElement getButton(String name) {
+        if (name.equals("Navigation")) {
+            return navigationBtn;
+        }
+        return shadowDOMBtn;
+    }
 }
