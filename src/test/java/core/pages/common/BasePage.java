@@ -17,4 +17,8 @@ public class BasePage {
         reusableMethods = new ReusableMethods();
         reusableUIMethods = new ReusableUIMethods(driver);
     }
+
+    public String getCurrentPageURL() {
+        return driver.getCurrentUrl();
+    }
 }
