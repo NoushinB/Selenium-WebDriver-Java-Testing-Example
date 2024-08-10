@@ -4,6 +4,9 @@ import core.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +19,7 @@ public class HomeStepDefinitions {
     }
 
     @Given("the user is on the {string} page")
-    public void theUserIsOnThePage(String page) {
+    public void theUserIsOnThePage(String page) throws InterruptedException {
         homePage.goToUrl(page);
     }
 
@@ -29,7 +32,7 @@ public class HomeStepDefinitions {
     public void theUserIsNavigatedToThePage(String url) {
         String currentUrl = homePage.getCurrentPageURL();
         assertEquals(url, currentUrl);
-    }
+}
 
     /*@When("the user clicks the button named {string} in Section {string}")
     public void theUserClicksTheButtonNamedInSection(String arg0, int arg1) {

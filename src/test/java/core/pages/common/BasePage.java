@@ -22,7 +22,7 @@ public class BasePage {
         return driver.getCurrentUrl();
     }
 
-    public void goToUrl(String url) {
+    public void goToUrl(String url) throws InterruptedException {
         driver.get(url);
     }
 }
