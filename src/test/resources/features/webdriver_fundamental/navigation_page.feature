@@ -1,8 +1,7 @@
 Feature: Navigation Page
 
   Background:
-    Given the user is on the navigation page
-    And And the "Previous" button is disabled
+    Given the user is on the "https://bonigarcia.dev/selenium-webdriver-java/" page
 
   Scenario: Click on a Button
     When User clicks a numbered or "Next" button
@@ -10,7 +9,6 @@ Feature: Navigation Page
     And the page content updates
 
   Scenario: Click on "Previous" Button
-    Given the user is on a page with an enabled "Previous" button
-    When the user clicks the "Previous" button
+    When User clicks a numbered or "Previous" button
     Then the page content updates
 
