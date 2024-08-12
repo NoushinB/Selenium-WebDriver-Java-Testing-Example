@@ -20,12 +20,18 @@ public class NavigationPage extends BasePage {
     private WebElement nextBtn;
 
     public NavigationPage() {
+
     }
 
 
     public void clickOnButton(String buttonName) {
 
         Objects.requireNonNull(findNumbereOrStringButton(buttonName)).click();
+    }
+
+    public boolean isButtonEnabled(String btnName){
+
+        return  Objects.requireNonNull(findNumbereOrStringButton(btnName)).isEnabled();
     }
 
     private WebElement findNumbereOrStringButton(String buttonName) {
