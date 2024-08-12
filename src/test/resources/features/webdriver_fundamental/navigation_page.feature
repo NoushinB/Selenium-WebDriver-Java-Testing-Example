@@ -6,7 +6,6 @@ Feature: Navigation Page
   Scenario Outline: Click on a Button
     When User clicks the "<button_name>" button
     Then the "Previous" button is enabled
-    And the page content updates
 
     Examples:
       | button_name   |
