@@ -4,6 +4,7 @@ import core.library.Constants;
 import core.library.PropertyLoader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
@@ -47,7 +48,9 @@ public class DriverProvider {
      */
     private void initializeChromeDriver() {
         System.setProperty("webdriver.chrome.driver", "D:/dev/drivers/chromedriver-win64/chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-search-engine-choice-screen");
+        driver = new ChromeDriver(options);
     }
 
     /**
