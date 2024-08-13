@@ -18,20 +18,25 @@ public class NavigationPage extends BasePage {
     private WebElement btnThree;
     @FindBy(xpath = ("//a[text()='Next']"))
     private WebElement nextBtn;
+    @FindBy(xpath = ("//p[@class='lead']"))
+    private WebElement textContent;
 
     public NavigationPage() {
 
     }
 
+    public String getContentText() {
+        return textContent.getText();
+    }
 
     public void clickOnButton(String buttonName) {
 
         Objects.requireNonNull(findNumbereOrStringButton(buttonName)).click();
     }
 
-    public boolean isButtonEnabled(String btnName){
+    public boolean isButtonEnabled(String btnName) {
 
-        return  Objects.requireNonNull(findNumbereOrStringButton(btnName)).isEnabled();
+        return Objects.requireNonNull(findNumbereOrStringButton(btnName)).isEnabled();
     }
 
     private WebElement findNumbereOrStringButton(String buttonName) {

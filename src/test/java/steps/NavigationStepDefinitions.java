@@ -35,7 +35,7 @@ public class NavigationStepDefinitions {
 
     }
 
-    @When("User clicks a numbered or {string} button")
+    @When("User clicks the {string} button")
     public void userClicksANumberedOrButton(String buttonName) {
         navigationPage.clickOnButton(buttonName);
 
@@ -48,9 +48,9 @@ public class NavigationStepDefinitions {
 
     }
 
-    @And("the page content updates")
-    public void thePageContentUpdates() {
-
+    @Then("the page content includes {string}")
+    public void thePageContentUpdates(String text) {
+        String fullContentText = navigationPage.getContentText();
+        assertTrue(fullContentText.startsWith(text));
     }
-
 }
