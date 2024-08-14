@@ -7,11 +7,10 @@ Feature: Dropdown Menu Interaction
     When User clicks on the "<button_name>" dropdown button
     Then the dropdown menu items should be visible
     Examples:
-      | button_name         |
-      | left click         |
-      |  right click        |
-      |  right click        |
-
+      | button_name |
+      | left click  |
+      | right click |
+      | right click |
 
 
   Scenario Outline: User selects an item in the first dropdown
@@ -19,8 +18,8 @@ Feature: Dropdown Menu Interaction
     And the dropdown menu items should be visible
     Then the user selects the "<item_name>" item in the dropdown
     Examples:
-      | button_name | item_name |
-      |         left click    | Action              |
-      |        right click      |      Another action      |
-      |        right click      | Something else here |
-      |             double click| Separated link      |
+      | button_name  | item_name           |
+      | left click   | Action              |
+      | right click  | Another action      |
+      | right click  | Something else here |
+      | double click | Separated link      |

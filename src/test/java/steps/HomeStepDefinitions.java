@@ -32,16 +32,7 @@ public class HomeStepDefinitions {
     public void theUserIsNavigatedToThePage(String url) {
         String currentUrl = homePage.getCurrentPageURL();
         assertEquals(url, currentUrl);
-}
-
-    /*@When("the user clicks the button named {string} in Section {string}")
-    public void theUserClicksTheButtonNamedInSection(String arg0, int arg1) {
-
     }
-
-    @Then("the user is navigated to the {string} page")
-    public void theUserIsNavigatedToThePage(String arg0) {
-    }*/
 
 
 }

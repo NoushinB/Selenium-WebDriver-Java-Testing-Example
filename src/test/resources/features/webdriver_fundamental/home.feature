@@ -8,8 +8,8 @@ Feature: Home
     Then the user is navigated to the "<target_page>" page
 
     Examples:
-      | button_name   |target_page|
-      | Navigation    |https://bonigarcia.dev/selenium-webdriver-java/navigation1.html|
-      | Web form      |https://bonigarcia.dev/selenium-webdriver-java/web-form.html|
-      | Dropdown menu |https://bonigarcia.dev/selenium-webdriver-java/dropdown-menu.html|
-      | Mouse over    |https://bonigarcia.dev/selenium-webdriver-java/mouse-over.html|
+      | button_name   | target_page                                                       |
+      | Navigation    | https://bonigarcia.dev/selenium-webdriver-java/navigation1.html   |
+      | Web form      | https://bonigarcia.dev/selenium-webdriver-java/web-form.html      |
+      | Dropdown menu | https://bonigarcia.dev/selenium-webdriver-java/dropdown-menu.html |
+      | Mouse over    | https://bonigarcia.dev/selenium-webdriver-java/mouse-over.html    |
