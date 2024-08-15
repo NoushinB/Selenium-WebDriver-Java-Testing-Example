@@ -8,9 +8,9 @@ Feature: Dropdown Menu Interaction
     Then the dropdown menu items should be visible
     Examples:
       | button_name |
-      | left click  |
-      | right click |
-      | right click |
+      |my-dropdown-1|
+      |my-dropdown-2|
+      |my-dropdown-3|
 
 
   Scenario Outline: User selects an item in the first dropdown
@@ -19,7 +19,7 @@ Feature: Dropdown Menu Interaction
     Then the user selects the "<item_name>" item in the dropdown
     Examples:
       | button_name  | item_name           |
-      | left click   | Action              |
-      | right click  | Another action      |
-      | right click  | Something else here |
-      | double click | Separated link      |
+      |my-dropdown-1| Action              |
+      |my-dropdown-1| Another action      |
+      |my-dropdown-2| Something else here |
+      |my-dropdown-3| Separated link      |
