@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
 import java.util.Objects;
 
 public class DropDownMenuPage extends BasePage {
@@ -16,6 +17,13 @@ public class DropDownMenuPage extends BasePage {
     @FindBy(id = ("my-dropdown-3"))
     private WebElement dropDown3;
 
+    @FindBy(xpath = "//ul[@class='dropdown-menu show']//a[@class='dropdown-item']")
+    private List<WebElement> visibleDropDownMenus1;
+    @FindBy(xpath = "//ul[@id='context-menu-2']//a[@class='dropdown-item']")
+    private List<WebElement> visibleDropDownMenus2;
+    @FindBy(xpath = "//ul[@id='context-menu-3']//a[@class='dropdown-item']")
+    private List<WebElement> visibleDropDownMenus3;
+
     public void clickOnButton(String buttonName) {
         WebElement dropdownButton = findDropDownButton(buttonName);
         Objects.requireNonNull(dropdownButton, "Button not found: " + buttonName);
@@ -24,8 +32,9 @@ public class DropDownMenuPage extends BasePage {
 
         switch (buttonName) {
             case "my-dropdown-1" -> dropdownButton.click();
-            case "my-dropdown-2" -> actions.doubleClick(dropdownButton).perform();
-            case "my-dropdown-3" -> actions.contextClick(dropdownButton).perform();
+            case "my-dropdown-2" -> actions.contextClick(dropdownButton).perform();
+            case "my-dropdown-3" -> actions.doubleClick(dropdownButton).perform();
+
         }
     }
 
@@ -36,5 +45,16 @@ public class DropDownMenuPage extends BasePage {
             case "my-dropdown-3" -> dropDown3;
             default -> null;
         };
+    }
+
+    public boolean areMenuItemsVisible(String buttonName) {
+        if (buttonName == "my-dropdown-1") {
+            return visibleDropDownMenus1.size() > 0;
+        } else  if (buttonName == "my-dropdown-2") {
+            return visibleDropDownMenus2.size()>0;
+        } else {
+            return visibleDropDownMenus3.size()>0;
+
+        }
     }
 }
