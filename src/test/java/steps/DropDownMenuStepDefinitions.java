@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DropDownMenuStepDefinitions {
     final private DropDownMenuPage dropDownMenuPage;
@@ -27,10 +28,9 @@ public class DropDownMenuStepDefinitions {
     dropDownMenuPage.clickOnButton(buttonName);
     }
 
-    @Then("the dropdown menu items should be visible")
-    public void dropdown_menu_items_should_be_visible() {
-        // Implement code to verify menu visibility
-        // Example: assert(menuItemsAreVisible());
+    @Then("the dropdown menu items should be visible for {string}")
+    public void dropdown_menu_items_should_be_visible(String buttonName) {
+        assertTrue(dropDownMenuPage.areMenuItemsVisible(buttonName));
     }
 
     @And("the user selects the {string} item in the dropdown")
