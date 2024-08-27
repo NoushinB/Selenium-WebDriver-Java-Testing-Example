@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class WebFormComponents {
+public class WebFormComponentsStepDefinitions {
     @Given("User is on the {string} page")
     public void user_is_on_the_page(String string) {
         // Write code here that turns the phrase above into concrete actions
