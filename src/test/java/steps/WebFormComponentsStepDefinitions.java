@@ -1,14 +1,22 @@
 package steps;
 
+import core.pages.WebFormComponentsPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertEquals;
+
 public class WebFormComponentsStepDefinitions {
-    @Given("User is on the {string} page")
-    public void user_is_on_the_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    final private WebFormComponentsPage webFormComponentsPage;
+    public WebFormComponentsStepDefinitions(){
+        webFormComponentsPage= new WebFormComponentsPage();
+    }
+    @Given("User is on the WebForm page")
+    public void user_is_on_the_page() {
+        String webFormPage = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
+        String currentUrl = webFormComponentsPage.getCurrentPageURL();
+        assertEquals(webFormPage, currentUrl);
     }
 
     @When("User enters {string} into the text input field")
