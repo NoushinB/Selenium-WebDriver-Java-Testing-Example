@@ -4,6 +4,7 @@ import core.pages.WebFormComponentsPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,15 +31,15 @@ public class WebFormComponentsStepDefinitions {
     }
 
     @When("User enters {string} into the password field")
-    public void user_enters_into_the_password_field(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_enters_into_the_password_field(String password) {
+        webFormComponentsPage.enterPassword(password);
     }
 
     @Then("the password field should display an obscured format of the entered password")
     public void the_password_field_should_display_an_obscured_format_of_the_entered_password() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       //assertTrue(webFormComponentsPage.getPasswordValue().isEmpty());
+        String passwordValue = webFormComponentsPage.getPasswordValue();
+        assertTrue(passwordValue == null || passwordValue.isEmpty());
     }
 
     @When("User enters {string} into the textarea")
