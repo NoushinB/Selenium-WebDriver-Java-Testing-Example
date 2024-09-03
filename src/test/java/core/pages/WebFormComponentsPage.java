@@ -40,4 +40,10 @@ public class WebFormComponentsPage extends BasePage {
     private WebElement datePicker;
     @FindBy(xpath = "//input[@name='my-range']")
     private WebElement rangeSlider;
+
+
+    public void enterTextInput(String text) {
+        textInput.clear();
+        textInput.sendKeys(text);
+    }
 }

@@ -20,9 +20,8 @@ public class WebFormComponentsStepDefinitions {
     }
 
     @When("User enters {string} into the text input field")
-    public void user_enters_into_the_text_input_field(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_enters_into_the_text_input_field(String text) {
+       webFormComponentsPage.enterTextInput(text);
     }
 
     @Then("the text input field should display {string}")
