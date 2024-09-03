@@ -46,4 +46,8 @@ public class WebFormComponentsPage extends BasePage {
         textInput.clear();
         textInput.sendKeys(text);
     }
+    public String getTextInputValue(){
+        return textInput.getAttribute("value");
+    }
+
 }

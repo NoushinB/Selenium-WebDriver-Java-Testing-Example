@@ -12,7 +12,7 @@ public class WebFormComponentsStepDefinitions {
     public WebFormComponentsStepDefinitions(){
         webFormComponentsPage= new WebFormComponentsPage();
     }
-    @Given("User is on the WebForm page")
+    @Given("the user is on the webForm page")
     public void user_is_on_the_page() {
         String webFormPage = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
         String currentUrl = webFormComponentsPage.getCurrentPageURL();
@@ -25,9 +25,8 @@ public class WebFormComponentsStepDefinitions {
     }
 
     @Then("the text input field should display {string}")
-    public void the_text_input_field_should_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_text_input_field_should_display(String expectedText) {
+           assertEquals(expectedText,webFormComponentsPage.getTextInputValue());
     }
 
     @When("User enters {string} into the password field")

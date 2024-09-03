@@ -1,7 +1,7 @@
 Feature: Web Form Components
 
   Background:
-    Given User is on the "https://bonigarcia.dev/selenium-webdriver-java/web-form.html" page
+    Given the user is on the "https://bonigarcia.dev/selenium-webdriver-java/web-form.html" page
 
 
   # Scenario for Text Input
