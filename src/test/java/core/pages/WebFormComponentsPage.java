@@ -57,4 +57,12 @@ public class WebFormComponentsPage extends BasePage {
         return password.getAttribute("Value");
     }
 
+    public void enterTextArea(String text) {
+        textArea.clear();
+        textArea.sendKeys(text);
+    }
+    public String getTextAreaValue() {
+        return textArea.getText();
+    }
+
 }
