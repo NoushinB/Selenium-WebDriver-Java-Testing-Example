@@ -1,18 +1,22 @@
 package steps;
 
-import core.pages.WebFormComponentsPage;
+import core.pages.webform_components.WebFormComponentsPage;
+import core.pages.webform_components.WebFormTextElement;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assert.assertEquals;
 
 public class WebFormComponentsStepDefinitions {
     final private WebFormComponentsPage webFormComponentsPage;
-    public WebFormComponentsStepDefinitions(){
-        webFormComponentsPage= new WebFormComponentsPage();
+
+    public WebFormComponentsStepDefinitions() {
+        webFormComponentsPage = new WebFormComponentsPage();
     }
+
     @Given("the user is on the webForm page")
     public void user_is_on_the_page() {
         String webFormPage = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
@@ -22,36 +26,33 @@ public class WebFormComponentsStepDefinitions {
 
     @When("User enters {string} into the text input field")
     public void user_enters_into_the_text_input_field(String text) {
-       webFormComponentsPage.enterTextInput(text);
+        webFormComponentsPage.enterTextInput(WebFormTextElement.TEXT, text);
     }
 
     @Then("the text input field should display {string}")
     public void the_text_input_field_should_display(String expectedText) {
-           assertEquals(expectedText,webFormComponentsPage.getTextInputValue());
+        assertEquals(expectedText, webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT));
     }
 
     @When("User enters {string} into the password field")
     public void user_enters_into_the_password_field(String password) {
-        webFormComponentsPage.enterPassword(password);
+        webFormComponentsPage.enterTextInput(WebFormTextElement.PASSWORD,password);
     }
 
     @Then("the password field should display an obscured format of the entered password")
     public void the_password_field_should_display_an_obscured_format_of_the_entered_password() {
-       //assertTrue(webFormComponentsPage.getPasswordValue().isEmpty());
-        String passwordValue = webFormComponentsPage.getPasswordValue();
+        String passwordValue = webFormComponentsPage.getTextInputValue(WebFormTextElement.PASSWORD);
         assertTrue(passwordValue == null || passwordValue.isEmpty());
     }
 
     @When("User enters {string} into the textarea")
-    public void user_enters_into_the_textarea(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_enters_into_the_textarea(String text) {
+        webFormComponentsPage.enterTextInput(WebFormTextElement.TEXT_AREA,text);
     }
 
     @Then("the textarea should display {string}")
     public void the_textarea_should_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT_AREA);
     }
 
     @Given("the input field is disabled")
