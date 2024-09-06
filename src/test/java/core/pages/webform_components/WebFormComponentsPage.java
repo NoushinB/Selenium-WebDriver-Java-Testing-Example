@@ -1,8 +1,10 @@
-package core.pages;
+package core.pages.webform_components;
 
 import core.pages.common.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.Objects;
 
 public class WebFormComponentsPage extends BasePage {
 
@@ -41,28 +43,27 @@ public class WebFormComponentsPage extends BasePage {
     @FindBy(xpath = "//input[@name='my-range']")
     private WebElement rangeSlider;
 
-
-    public void enterTextInput(String text) {
-        textInput.clear();
-        textInput.sendKeys(text);
-    }
-    public String getTextInputValue(){
-        return textInput.getAttribute("value");
-    }
-    public void enterPassword(String passwordText){
-        password.clear();
-        password.sendKeys(passwordText);
-    }
-    public String getPasswordValue(){
-        return password.getAttribute("Value");
+    public void enterTextInput(WebFormTextElement element, String text) {
+        WebElement textElement = getTextElement(element);
+        Objects.requireNonNull(textElement, "Text element not found: " + element.name());
+        textElement.clear();
+        textElement.sendKeys(text);
     }
 
-    public void enterTextArea(String text) {
-        textArea.clear();
-        textArea.sendKeys(text);
-    }
-    public String getTextAreaValue() {
-        return textArea.getText();
+    public String getTextInputValue(WebFormTextElement element) {
+        WebElement textElement = getTextElement(element);
+        Objects.requireNonNull(textElement, "Text element not found: " + element.name());
+        return textElement.getText();
     }
 
+    private WebElement getTextElement(WebFormTextElement element) {
+        if (element == WebFormTextElement.TEXT) {
+            return textInput;
+        } else if (element == WebFormTextElement.TEXT_AREA) {
+            return textArea;
+        } else if (element == WebFormTextElement.PASSWORD) {
+            return password;
+        }
+        return null;
+    }
 }
