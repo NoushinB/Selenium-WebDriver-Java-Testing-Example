@@ -31,23 +31,25 @@ public class WebFormComponentsStepDefinitions {
 
     @Then("the text input field should display {string}")
     public void the_text_input_field_should_display(String expectedText) {
-        assertEquals(expectedText, webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT));
+        String actual = webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT);
+        assertEquals(expectedText, actual);
     }
 
     @When("User enters {string} into the password field")
     public void user_enters_into_the_password_field(String password) {
-        webFormComponentsPage.enterTextInput(WebFormTextElement.PASSWORD,password);
+        webFormComponentsPage.enterTextInput(WebFormTextElement.PASSWORD, password);
     }
 
-    @Then("the password field should display an obscured format of the entered password")
-    public void the_password_field_should_display_an_obscured_format_of_the_entered_password() {
+    @Then("the password field should display the entered {string}")
+    public void the_password_field_should_display_an_obscured_format_of_the_entered_password(String password) {
         String passwordValue = webFormComponentsPage.getTextInputValue(WebFormTextElement.PASSWORD);
-        assertTrue(passwordValue == null || passwordValue.isEmpty());
+        assertEquals(password, passwordValue);
+
     }
 
     @When("User enters {string} into the textarea")
     public void user_enters_into_the_textarea(String text) {
-        webFormComponentsPage.enterTextInput(WebFormTextElement.TEXT_AREA,text);
+        webFormComponentsPage.enterTextInput(WebFormTextElement.TEXT_AREA, text);
     }
 
     @Then("the textarea should display {string}")

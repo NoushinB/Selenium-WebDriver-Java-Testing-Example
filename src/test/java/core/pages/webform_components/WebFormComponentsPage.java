@@ -53,7 +53,7 @@ public class WebFormComponentsPage extends BasePage {
     public String getTextInputValue(WebFormTextElement element) {
         WebElement textElement = getTextElement(element);
         Objects.requireNonNull(textElement, "Text element not found: " + element.name());
-        return textElement.getText();
+        return textElement.getAttribute("value");
     }
 
     private WebElement getTextElement(WebFormTextElement element) {

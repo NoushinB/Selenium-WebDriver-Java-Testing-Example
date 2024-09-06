@@ -15,9 +15,9 @@ Feature: Web Form Components
 
 
   # Scenario for Password
-  Scenario Outline: Entering a password
+  Scenario Outline:
     When User enters "<password>" into the password field
-    Then the password field should display an obscured format of the entered password
+    Then the password field should display the entered "<password>"
 
     Examples:
       | password        |
