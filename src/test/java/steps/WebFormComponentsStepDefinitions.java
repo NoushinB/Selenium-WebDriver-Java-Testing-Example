@@ -52,9 +52,10 @@ public class WebFormComponentsStepDefinitions {
         webFormComponentsPage.enterTextInput(WebFormTextElement.TEXT_AREA, text);
     }
 
-    @Then("the textarea should display {string}")
-    public void the_textarea_should_display(String string) {
-        webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT_AREA);
+    @Then("the textarea should display content and includes {string}")
+    public void the_textarea_should_display(String textContent) {
+        String actual =  webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT_AREA);
+        assertEquals(textContent,actual);
     }
 
     @Given("the input field is disabled")

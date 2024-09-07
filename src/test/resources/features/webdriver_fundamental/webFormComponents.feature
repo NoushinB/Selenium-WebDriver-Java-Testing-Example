@@ -28,7 +28,7 @@ Feature: Web Form Components
   # Scenario for Textarea
   Scenario Outline: Entering text into a textarea
     When User enters "<text>" into the textarea
-    Then the textarea should display "<text>"
+    Then the textarea should display content and includes "<text>"
 
     Examples:
       | text                           |
