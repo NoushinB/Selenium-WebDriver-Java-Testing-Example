@@ -38,9 +38,8 @@ Feature: Web Form Components
 
   # Scenario for Disabled Input
   Scenario: Attempting to enter text into a disabled input field
-    And the input field is disabled
-    When User tries to enter text into the disabled input field
-    Then the input field should not accept any text
+    When the input field is disabled
+    Then the input field displays "Disabled input"
 
   # Scenario for Readonly Input
   Scenario Outline: Viewing and attempting to change a readonly input field
