@@ -6,9 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertTrue;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class WebFormComponentsStepDefinitions {
     final private WebFormComponentsPage webFormComponentsPage;
@@ -60,21 +58,15 @@ public class WebFormComponentsStepDefinitions {
 
     @Given("the input field is disabled")
     public void the_input_field_is_disabled() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertTrue(webFormComponentsPage.isDisabledInputDisabled());
+    }
+    @Then("the input field displays {string}")
+    public void theInputFieldDisplays(String expextDisabledInput) {
+        String actualDisabledInput= webFormComponentsPage.getDisabledInputMessage();
+        assertEquals(expextDisabledInput,actualDisabledInput);
     }
 
-    @When("User tries to enter text into the disabled input field")
-    public void user_tries_to_enter_text_into_the_disabled_input_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
-    @Then("the input field should not accept any text")
-    public void the_input_field_should_not_accept_any_text() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
     @When("User attempts to change the value to {string}")
     public void user_attempts_to_change_the_value_to(String string) {
@@ -238,6 +230,7 @@ public class WebFormComponentsStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
 
 
 }
