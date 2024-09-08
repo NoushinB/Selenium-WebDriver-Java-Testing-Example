@@ -55,6 +55,15 @@ public class WebFormComponentsPage extends BasePage {
         Objects.requireNonNull(textElement, "Text element not found: " + element.name());
         return textElement.getAttribute("value");
     }
+    public boolean isDisabledInputDisabled() {
+        return !disabledInput.isEnabled();
+    }
+    public String getDisabledInputMessage() {
+        return disabledInput.getAttribute("placeholder");
+    }
+    public String getReadonlyInputValue() {
+        return readonlyInput.getAttribute("value");
+    }
 
     private WebElement getTextElement(WebFormTextElement element) {
         if (element == WebFormTextElement.TEXT) {
