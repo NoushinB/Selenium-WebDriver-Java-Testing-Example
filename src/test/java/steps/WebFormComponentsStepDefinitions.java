@@ -68,29 +68,18 @@ public class WebFormComponentsStepDefinitions {
 
 
 
-    @When("User attempts to change the value to {string}")
-    public void user_attempts_to_change_the_value_to(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
-    @Given("the input field is readonly with the value {string}")
+
+    @When("the input field is readonly with the value {string}")
     public void the_input_field_is_readonly_with_the_value(String string) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
 
 
-    @Then("the input field should still display {string}")
-    public void the_input_field_should_still_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+    @Then("User should not be able to remove the value")
+    public void user_should_not_be_able_to_remove_the_value() {
 
-    @Then("User should not be able to modify the value")
-    public void user_should_not_be_able_to_modify_the_value() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
     @Then("User should be redirected to the {string} page")

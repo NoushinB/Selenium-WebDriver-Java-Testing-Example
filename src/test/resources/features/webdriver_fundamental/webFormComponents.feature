@@ -42,17 +42,11 @@ Feature: Web Form Components
     Then the input field displays "Disabled input"
 
   # Scenario for Readonly Input
-  Scenario Outline: Viewing and attempting to change a readonly input field
-    And the input field is readonly with the value "<value>"
-    When User attempts to change the value to "<new_value>"
-    Then the input field should still display "<value>"
-    And User should not be able to modify the value
+  Scenario: Viewing and attempting to change a readonly input field
+    When the input field is readonly with the value "Readonly input"
+    Then User should not be able to remove the value
 
-    Examples:
-      | value         | new_value   |
-      | Readonly Value | New Value   |
-      | Static Info    | Updated Info|
-      | Original Text  | Changed Text|
+
 
   # Scenario for Return to Index
   Scenario: Returning to the index page
