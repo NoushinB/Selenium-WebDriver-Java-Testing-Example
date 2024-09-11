@@ -64,6 +64,20 @@ public class WebFormComponentsPage extends BasePage {
     public String getReadonlyInputValue() {
         return readonlyInput.getAttribute("value");
     }
+    public boolean isReadonlyInputReadonly() {
+        return readonlyInput.getAttribute("readonly") != null;
+    }
+
+    // Attempt to change the value of the readonly input field and verify it remains unchanged
+    public boolean isReadonlyInputUnchangedAfterAttempt() {
+        String initialValue = getReadonlyInputValue();
+
+        // Attempt to modify the field (this will not actually change the value)
+        readonlyInput.sendKeys("New Value");
+
+        // Verify that the value remains the same
+        return initialValue.equals(getReadonlyInputValue());
+    }
 
     private WebElement getTextElement(WebFormTextElement element) {
         if (element == WebFormTextElement.TEXT) {

@@ -71,14 +71,16 @@ public class WebFormComponentsStepDefinitions {
 
 
     @When("the input field is readonly with the value {string}")
-    public void the_input_field_is_readonly_with_the_value(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_input_field_is_readonly_with_the_value(String expectedValue) {
+        assertTrue(webFormComponentsPage.isReadonlyInputReadonly());
+        assertEquals(expectedValue, webFormComponentsPage.getReadonlyInputValue());
     }
 
 
-    @Then("User should not be able to remove the value")
+    @Then("User should not be able to write the value")
     public void user_should_not_be_able_to_remove_the_value() {
+        assertTrue(webFormComponentsPage.isReadonlyInputUnchangedAfterAttempt());
+
 
     }
 

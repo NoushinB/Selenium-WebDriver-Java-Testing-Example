@@ -44,7 +44,7 @@ Feature: Web Form Components
   # Scenario for Readonly Input
   Scenario: Viewing and attempting to change a readonly input field
     When the input field is readonly with the value "Readonly input"
-    Then User should not be able to remove the value
+    Then User should not be able to write the value
 
 
 
