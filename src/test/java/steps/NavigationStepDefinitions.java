@@ -38,7 +38,6 @@ public class NavigationStepDefinitions {
     @When("User clicks the {string} button")
     public void userClicksANumberedOrButton(String buttonName) {
         navigationPage.clickOnButton(buttonName);
-
     }
 
     @Then("the {string} button is enabled")

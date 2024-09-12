@@ -50,7 +50,7 @@ Feature: Web Form Components
 
   # Scenario for Return to Index
   Scenario: Returning to the index page
-    When User clicks the "Return to index" button
+    When User clicks on the "Return to index" button
     Then User should be redirected to the "https://bonigarcia.dev/selenium-webdriver-java/index.html" page
 
   # Scenario for Dropdown (Select)

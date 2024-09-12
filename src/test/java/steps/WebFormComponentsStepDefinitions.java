@@ -1,5 +1,6 @@
 package steps;
 
+import core.pages.HomePage;
 import core.pages.webform_components.WebFormComponentsPage;
 import core.pages.webform_components.WebFormTextElement;
 import io.cucumber.java.en.Given;
@@ -10,9 +11,11 @@ import static org.junit.Assert.*;
 
 public class WebFormComponentsStepDefinitions {
     final private WebFormComponentsPage webFormComponentsPage;
+    final private HomePage homePage;
 
     public WebFormComponentsStepDefinitions() {
         webFormComponentsPage = new WebFormComponentsPage();
+       homePage = new HomePage();
     }
 
     @Given("the user is on the webForm page")
@@ -83,11 +86,16 @@ public class WebFormComponentsStepDefinitions {
 
 
     }
+    @When("User clicks on the {string} button")
+    public void userClicksTheButton(String buttonText) {
+        if (buttonText.equals("Return to index")) {
+            webFormComponentsPage.clickReturnToIndex();
+        }
+    }
 
     @Then("User should be redirected to the {string} page")
-    public void user_should_be_redirected_to_the_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_should_be_redirected_to_the_page(String page) throws InterruptedException {
+        homePage.goToUrl(page);
     }
 
     @When("User opens the dropdown menu")

@@ -67,6 +67,9 @@ public class WebFormComponentsPage extends BasePage {
     public boolean isReadonlyInputReadonly() {
         return readonlyInput.getAttribute("readonly") != null;
     }
+    public void clickReturnToIndex() {
+        returnToIndex.click();
+    }
 
     // Attempt to change the value of the readonly input field and verify it remains unchanged
     public boolean isReadonlyInputUnchangedAfterAttempt() {
