@@ -55,9 +55,9 @@ Feature: Web Form Components
 
   # Scenario for Dropdown (Select)
   Scenario Outline: Selecting an option from a dropdown menu
-    When User opens the dropdown menu
-    And User selects "<option>" from the dropdown
-    Then the dropdown should display "<option>"
+    When User clicks on the dropdown menu
+    And the user selects the option "<option>"
+    Then the dropdown menu shows the "<option>" title
 
     Examples:
       | option    |
