@@ -3,7 +3,9 @@ package core.pages.webform_components;
 import core.pages.common.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
 import java.util.Objects;
 
 public class WebFormComponentsPage extends BasePage {
@@ -55,18 +57,23 @@ public class WebFormComponentsPage extends BasePage {
         Objects.requireNonNull(textElement, "Text element not found: " + element.name());
         return textElement.getAttribute("value");
     }
+
     public boolean isDisabledInputDisabled() {
         return !disabledInput.isEnabled();
     }
+
     public String getDisabledInputMessage() {
         return disabledInput.getAttribute("placeholder");
     }
+
     public String getReadonlyInputValue() {
         return readonlyInput.getAttribute("value");
     }
+
     public boolean isReadonlyInputReadonly() {
         return readonlyInput.getAttribute("readonly") != null;
     }
+
     public void clickReturnToIndex() {
         returnToIndex.click();
     }
@@ -91,5 +98,19 @@ public class WebFormComponentsPage extends BasePage {
             return password;
         }
         return null;
+    }
+
+    public void clickOnDropDownButton() {
+        dropDownSelect.click();
+    }
+
+    public void menuItemClick(String itemText) {
+        Select select = new Select(dropDownSelect);
+        select.selectByVisibleText(itemText);
+    }
+
+    public String getDropDownFirstSelectedOptionText() {
+        Select select = new Select(dropDownSelect);
+        return select.getFirstSelectedOption().getText();
     }
 }
