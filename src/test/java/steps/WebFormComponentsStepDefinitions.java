@@ -3,6 +3,7 @@ package steps;
 import core.pages.HomePage;
 import core.pages.webform_components.WebFormComponentsPage;
 import core.pages.webform_components.WebFormTextElement;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -69,10 +70,6 @@ public class WebFormComponentsStepDefinitions {
         assertEquals(expextDisabledInput,actualDisabledInput);
     }
 
-
-
-
-
     @When("the input field is readonly with the value {string}")
     public void the_input_field_is_readonly_with_the_value(String expectedValue) {
         assertTrue(webFormComponentsPage.isReadonlyInputReadonly());
@@ -83,9 +80,8 @@ public class WebFormComponentsStepDefinitions {
     @Then("User should not be able to write the value")
     public void user_should_not_be_able_to_remove_the_value() {
         assertTrue(webFormComponentsPage.isReadonlyInputUnchangedAfterAttempt());
-
-
     }
+
     @When("User clicks on the {string} button")
     public void userClicksTheButton(String buttonText) {
         if (buttonText.equals("Return to index")) {
@@ -98,22 +94,19 @@ public class WebFormComponentsStepDefinitions {
         homePage.goToUrl(page);
     }
 
-    @When("User opens the dropdown menu")
-    public void user_opens_the_dropdown_menu() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("User clicks on the dropdown menu")
+    public void userClicksOnTheDropdownMenu() {
+        webFormComponentsPage.clickOnDropDownButton();
     }
 
-    @When("User selects {string} from the dropdown")
-    public void user_selects_from_the_dropdown(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @And("the user selects the option {string}")
+    public void theUserSelectsThe(String optionName) {
+        webFormComponentsPage.menuItemClick(optionName);
     }
 
-    @Then("the dropdown should display {string}")
-    public void the_dropdown_should_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("the dropdown menu shows the {string} title")
+    public void theDropdownMenuItemsShouldBeVisibleForButton(String optionName) {
+        assertEquals(optionName, webFormComponentsPage.getDropDownFirstSelectedOptionText());
     }
 
     @When("User types {string} into the datalist input field")
@@ -229,7 +222,5 @@ public class WebFormComponentsStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
-
 
 }
