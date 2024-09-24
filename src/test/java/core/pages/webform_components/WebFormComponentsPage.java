@@ -113,4 +113,13 @@ public class WebFormComponentsPage extends BasePage {
         Select select = new Select(dropDownSelect);
         return select.getFirstSelectedOption().getText();
     }
+    public void uploadFile(String filePath) {
+        inputFile.sendKeys(filePath);
+    }
+
+    public String getUploadedFileName() {
+        return inputFile.getAttribute("value");
+    }
+
+
 }
