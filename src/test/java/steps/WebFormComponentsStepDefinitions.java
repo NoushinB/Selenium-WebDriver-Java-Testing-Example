@@ -19,7 +19,7 @@ public class WebFormComponentsStepDefinitions {
 
     public WebFormComponentsStepDefinitions() {
         webFormComponentsPage = new WebFormComponentsPage();
-       homePage = new HomePage();
+        homePage = new HomePage();
     }
 
     @Given("the user is on the webForm page")
@@ -59,18 +59,19 @@ public class WebFormComponentsStepDefinitions {
 
     @Then("the textarea should display content and includes {string}")
     public void the_textarea_should_display(String textContent) {
-        String actual =  webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT_AREA);
-        assertEquals(textContent,actual);
+        String actual = webFormComponentsPage.getTextInputValue(WebFormTextElement.TEXT_AREA);
+        assertEquals(textContent, actual);
     }
 
     @Given("the input field is disabled")
     public void the_input_field_is_disabled() {
         assertTrue(webFormComponentsPage.isDisabledInputDisabled());
     }
+
     @Then("the input field displays {string}")
     public void theInputFieldDisplays(String expextDisabledInput) {
-        String actualDisabledInput= webFormComponentsPage.getDisabledInputMessage();
-        assertEquals(expextDisabledInput,actualDisabledInput);
+        String actualDisabledInput = webFormComponentsPage.getDisabledInputMessage();
+        assertEquals(expextDisabledInput, actualDisabledInput);
     }
 
     @When("the input field is readonly with the value {string}")
@@ -112,27 +113,10 @@ public class WebFormComponentsStepDefinitions {
         assertEquals(optionName, webFormComponentsPage.getDropDownFirstSelectedOptionText());
     }
 
-//    @When("User types {string} into the datalist input field")
-//    public void user_types_into_the_datalist_input_field(String string) {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-//
-//    @Then("the datalist should display matching suggestions")
-//    public void the_datalist_should_display_matching_suggestions() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-//
-//    @When("User selects {string} from the datalist suggestions")
-//    public void user_selects_from_the_datalist_suggestions(String string) {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-@When("User types {string} into the datalist input field")
-public void user_types_into_the_datalist_input_field(String query) {
-    webFormComponentsPage.enterTextInDatalist(query);
-}
+    @When("User types {string} into the datalist input field")
+    public void user_types_into_the_datalist_input_field(String query) {
+        webFormComponentsPage.enterTextInDatalist(query);
+    }
 
     @Then("the datalist should display matching suggestions")
     public void the_datalist_should_display_matching_suggestions() {
@@ -150,7 +134,6 @@ public void user_types_into_the_datalist_input_field(String query) {
         String actualValue = webFormComponentsPage.getDatalistInputValue();
         assertEquals(expectedValue, actualValue);
     }
-
 
 
     @When("User selects a file {string} using the file input")
