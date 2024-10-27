@@ -1,10 +1,15 @@
 package core.pages.webform_components;
 
 import core.pages.common.BasePage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
@@ -113,12 +118,33 @@ public class WebFormComponentsPage extends BasePage {
         Select select = new Select(dropDownSelect);
         return select.getFirstSelectedOption().getText();
     }
+
+    public void enterTextInDatalist(String query) {
+        dropDownDataList.clear();
+        dropDownDataList.sendKeys(query);
+    }
+
+    public List<WebElement> getSuggestions() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//datalist[@id='my-options']/option")));
+    }
+
     public void uploadFile(String filePath) {
         inputFile.sendKeys(filePath);
     }
 
     public String getUploadedFileName() {
         return inputFile.getAttribute("value");
+    }
+
+    public void selectDatalistOption(String option) {
+        enterTextInDatalist(option);  // Type text to filter options
+        dropDownDataList.sendKeys(Keys.ARROW_DOWN);  // Navigate to the first suggestion
+        dropDownDataList.sendKeys(Keys.ENTER);       // Select the highlighted suggestion
+    }
+
+    public String getDatalistInputValue() {
+        return dropDownDataList.getAttribute("value");
     }
 
 
