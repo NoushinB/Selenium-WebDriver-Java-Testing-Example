@@ -7,6 +7,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -109,29 +112,46 @@ public class WebFormComponentsStepDefinitions {
         assertEquals(optionName, webFormComponentsPage.getDropDownFirstSelectedOptionText());
     }
 
-    @When("User types {string} into the datalist input field")
-    public void user_types_into_the_datalist_input_field(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+//    @When("User types {string} into the datalist input field")
+//    public void user_types_into_the_datalist_input_field(String string) {
+//        // Write code here that turns the phrase above into concrete actions
+//        throw new io.cucumber.java.PendingException();
+//    }
+//
+//    @Then("the datalist should display matching suggestions")
+//    public void the_datalist_should_display_matching_suggestions() {
+//        // Write code here that turns the phrase above into concrete actions
+//        throw new io.cucumber.java.PendingException();
+//    }
+//
+//    @When("User selects {string} from the datalist suggestions")
+//    public void user_selects_from_the_datalist_suggestions(String string) {
+//        // Write code here that turns the phrase above into concrete actions
+//        throw new io.cucumber.java.PendingException();
+//    }
+@When("User types {string} into the datalist input field")
+public void user_types_into_the_datalist_input_field(String query) {
+    webFormComponentsPage.enterTextInDatalist(query);
+}
 
     @Then("the datalist should display matching suggestions")
     public void the_datalist_should_display_matching_suggestions() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        List<WebElement> suggestions = webFormComponentsPage.getSuggestions();
+        assertFalse("No suggestions found", suggestions.isEmpty());
     }
 
     @When("User selects {string} from the datalist suggestions")
-    public void user_selects_from_the_datalist_suggestions(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_selects_from_the_datalist_suggestions(String option) {
+        webFormComponentsPage.selectDatalistOption(option);
     }
 
     @Then("the input field should display {string}")
-    public void the_input_field_should_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_input_field_should_display(String expectedValue) {
+        String actualValue = webFormComponentsPage.getDatalistInputValue();
+        assertEquals(expectedValue, actualValue);
     }
+
+
 
     @When("User selects a file {string} using the file input")
     public void user_selects_a_file_using_the_file_input(String string) {
