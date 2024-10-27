@@ -10,8 +10,8 @@ Feature: Web Form Components
     Then the text input field should display "<text>"
 
     Examples:
-      | text             |
-      | QA Automation         |
+      | text          |
+      | QA Automation |
 
 
   # Scenario for Password
@@ -31,7 +31,7 @@ Feature: Web Form Components
     Then the textarea should display content and includes "<text>"
 
     Examples:
-      | text                           |
+      | text                            |
       | This is a multiline text input. |
       | Example of a longer text block. |
       | Short note.                     |
@@ -60,21 +60,23 @@ Feature: Web Form Components
     Then the dropdown menu shows the "<option>" title
 
     Examples:
-      | option    |
-      | One |
-      | Two  |
+      | option |
+      | One    |
+      | Two    |
       | Three  |
 
-  # Scenario for Dropdown (Datalist)
-  Scenario Outline: Searching and selecting an option from a datalist
+
+
+    # Scenario for Dropdown (Datalist)
+  Scenario Outline: Searching and selecting an option from the datalist
     When User types "<query>" into the datalist input field
     Then the datalist should display matching suggestions
     When User selects "<option>" from the datalist suggestions
     Then the input field should display "<option>"
 
     Examples:
-      | query     | option    |
-      | Option 1  | San Francisco |
+      | query | option        |
+      | San   | San Francisco |
 
 
   # Scenario for File Input
@@ -83,9 +85,9 @@ Feature: Web Form Components
     Then the file input should display "<filename>"
 
     Examples:
-      | filename       |
-      | document.pdf   |
-      | image.png      |
+      | filename     |
+      | document.pdf |
+      | image.png    |
 
 
   # Scenario for Checkbox
@@ -102,8 +104,8 @@ Feature: Web Form Components
     And other radio buttons should not be selected
 
     Examples:
-      | option     |
-      | Checked radio  |
+      | option        |
+      | Checked radio |
 
 
   # Scenario for Color Picker
@@ -112,10 +114,10 @@ Feature: Web Form Components
     Then the color picker should display the color "<color>"
 
     Examples:
-      | color     |
-      | #FF5733   |
-      | #33FF57   |
-      | #5733FF   |
+      | color   |
+      | #FF5733 |
+      | #33FF57 |
+      | #5733FF |
 
   # Scenario for Date Picker
   Scenario Outline: Selecting a date from the date picker
@@ -135,5 +137,5 @@ Feature: Web Form Components
 
     Examples:
       | value |
-      | 0    |
+      | 0     |
 
