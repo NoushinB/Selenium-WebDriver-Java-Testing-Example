@@ -136,7 +136,7 @@ public class WebFormComponentsStepDefinitions {
     }
 
 
-    @When("User selects a file {string} using the file input")
+    @When("User selects a file {string} located at {string}")
     public void user_selects_a_file_using_the_file_input(String string) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();

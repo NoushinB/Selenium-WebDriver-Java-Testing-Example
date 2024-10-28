@@ -81,13 +81,13 @@ Feature: Web Form Components
 
   # Scenario for File Input
   Scenario Outline: Uploading a file
-    When User selects a file "<filename>" using the file input
+    When User selects a file "<filename>" located at "<path>"
     Then the file input should display "<filename>"
 
     Examples:
-      | filename     |
-      | document.pdf |
-      | image.png    |
+      | filename     |path|
+      | document.pdf ||
+      | image.png    ||
 
 
   # Scenario for Checkbox
