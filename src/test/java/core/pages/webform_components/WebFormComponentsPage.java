@@ -130,6 +130,7 @@ public class WebFormComponentsPage extends BasePage {
     }
 
     public void uploadFile(String filePath) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         inputFile.sendKeys(filePath);
     }
 

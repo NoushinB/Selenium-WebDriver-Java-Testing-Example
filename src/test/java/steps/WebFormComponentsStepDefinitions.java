@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -137,15 +138,17 @@ public class WebFormComponentsStepDefinitions {
 
 
     @When("User selects a file {string} located at {string}")
-    public void user_selects_a_file_using_the_file_input(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_selects_a_file_using_the_file_input(String filename,String filePath) {
+     webFormComponentsPage.uploadFile(filePath);
     }
 
     @Then("the file input should display {string}")
-    public void the_file_input_should_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_file_input_should_display(String filename) {
+
+
+        String displayedFileName = webFormComponentsPage.getUploadedFileName();
+        Assert.assertTrue("The file input did not display the expected filename",
+                displayedFileName.contains(filename));
     }
 
     @When("User checks the checkbox")
