@@ -86,8 +86,8 @@ Feature: Web Form Components
 
     Examples:
       | filename     |path|
-      | document.pdf ||
-      | image.png    ||
+      | test.jpg |src/test/resources/files/test.jpg|
+
 
 
   # Scenario for Checkbox
