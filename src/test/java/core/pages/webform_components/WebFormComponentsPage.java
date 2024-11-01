@@ -139,6 +139,19 @@ public class WebFormComponentsPage extends BasePage {
         return inputFile.getAttribute("value");
     }
 
+
+    public void checkCheckbox(WebElement checkbox) {
+        if (!checkbox.isSelected()) {
+            checkbox.click();
+        }
+    }
+
+    public void uncheckCheckbox(WebElement checkbox) {
+        if (checkbox.isSelected()) {
+            checkbox.click();
+        }
+    }
+
     public void selectDatalistOption(String option) {
         enterTextInDatalist(option);  // Type text to filter options
         dropDownDataList.sendKeys(Keys.ARROW_DOWN);  // Navigate to the first suggestion
