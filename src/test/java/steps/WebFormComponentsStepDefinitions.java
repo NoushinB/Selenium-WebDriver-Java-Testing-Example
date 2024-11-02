@@ -153,26 +153,22 @@ public class WebFormComponentsStepDefinitions {
 
     @When("User checks the checkbox")
     public void user_checks_the_checkbox() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       webFormComponentsPage.checkCheckbox();
     }
 
     @Then("the checkbox should be checked")
     public void the_checkbox_should_be_checked() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       Assert.assertTrue(webFormComponentsPage.isCheckboxChecked());
     }
 
     @When("User unchecks the checkbox")
     public void user_unchecks_the_checkbox() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      webFormComponentsPage.uncheckCheckbox();
     }
 
     @Then("the checkbox should be unchecked")
     public void the_checkbox_should_be_unchecked() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertFalse(webFormComponentsPage.isCheckboxChecked());
     }
 
     @When("User selects the {string} radio button")
