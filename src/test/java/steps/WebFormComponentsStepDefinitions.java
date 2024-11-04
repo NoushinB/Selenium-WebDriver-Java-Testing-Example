@@ -173,8 +173,7 @@ public class WebFormComponentsStepDefinitions {
 
     @When("User selects the {string} radio button")
     public void user_selects_the_radio_button(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       webFormComponentsPage.selectRadioButton();
     }
 
     @Then("the {string} radio button should be checked")
