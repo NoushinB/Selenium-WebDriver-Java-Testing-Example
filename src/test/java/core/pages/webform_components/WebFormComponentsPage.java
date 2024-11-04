@@ -161,6 +161,9 @@ public class WebFormComponentsPage extends BasePage {
             checkedRadio.click();
         }
     }
+    public boolean isRadioButtonSelected() {
+        return checkedRadio.isSelected();
+    }
 
     public void selectDatalistOption(String option) {
         enterTextInDatalist(option);  // Type text to filter options
