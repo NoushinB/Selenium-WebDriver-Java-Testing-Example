@@ -90,12 +90,12 @@ Feature: Web Form Components
 
 
 
-  # Scenario for Checkbox
-  Scenario: Checking and unchecking a checkbox
-    When User checks the checkbox
-    Then the checkbox should be checked
+  # Scenario for Checked Checkbox
+  Scenario: unchecking and checking a checked checkbox
     When User unchecks the checkbox
     Then the checkbox should be unchecked
+    When User checks the checkbox
+    Then the checkbox should be checked
 
   # Scenario for Radio Button
   Scenario Outline: Selecting a radio button
