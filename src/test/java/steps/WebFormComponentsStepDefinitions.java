@@ -151,24 +151,24 @@ public class WebFormComponentsStepDefinitions {
                 displayedFileName.contains(filename));
     }
 
-    @When("User checks the checkbox")
-    public void user_checks_the_checkbox() {
-       webFormComponentsPage.checkCheckbox();
-    }
-
-    @Then("the checkbox should be checked")
-    public void the_checkbox_should_be_checked() {
-       Assert.assertTrue(webFormComponentsPage.isCheckboxChecked());
-    }
-
     @When("User unchecks the checkbox")
-    public void user_unchecks_the_checkbox() {
-      webFormComponentsPage.uncheckCheckbox();
+    public void user_checks_the_checkbox() {
+       webFormComponentsPage.checkedCheckboxClick();
     }
 
     @Then("the checkbox should be unchecked")
+    public void the_checkbox_should_be_checked() {
+       Assert.assertFalse(webFormComponentsPage.isCheckboxChecked());
+    }
+
+    @When("User checks the checkbox")
+    public void user_unchecks_the_checkbox() {
+      webFormComponentsPage.checkedCheckboxClick();
+    }
+
+    @Then("the checkbox should be checked")
     public void the_checkbox_should_be_unchecked() {
-        Assert.assertFalse(webFormComponentsPage.isCheckboxChecked());
+        Assert.assertTrue(webFormComponentsPage.isCheckboxChecked());
     }
 
     @When("User selects the {string} radio button")
