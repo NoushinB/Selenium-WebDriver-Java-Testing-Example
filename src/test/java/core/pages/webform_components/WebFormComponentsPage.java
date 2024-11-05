@@ -140,20 +140,12 @@ public class WebFormComponentsPage extends BasePage {
     }
 
 
-    public void checkCheckbox() {
-        if (!checkedCheckbox.isSelected()) {
-            checkedCheckbox.click();
-        }
+    public void checkedCheckboxClick() {
+        checkedCheckbox.click();
     }
+
     public boolean isCheckboxChecked() {
         return checkedCheckbox.isSelected();
-    }
-
-
-    public void uncheckCheckbox() {
-        if (checkedCheckbox.isSelected()) {
-            checkedCheckbox.click();
-        }
     }
 
     public void selectRadioButton() {
