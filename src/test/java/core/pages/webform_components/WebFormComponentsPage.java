@@ -149,12 +149,13 @@ public class WebFormComponentsPage extends BasePage {
     }
 
     public void selectRadioButton() {
-        if (!checkedRadio.isSelected()) {
             checkedRadio.click();
-        }
     }
     public boolean isRadioButtonSelected() {
         return checkedRadio.isSelected();
+    }
+    public void selectDefaultRadio() {
+        defaultRadio.click();
     }
 
     public void selectDatalistOption(String option) {
