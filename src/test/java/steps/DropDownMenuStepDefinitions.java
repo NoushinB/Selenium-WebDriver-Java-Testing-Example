@@ -2,11 +2,9 @@ package steps;
 
 import core.pages.DropDownMenuPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DropDownMenuStepDefinitions {
@@ -14,13 +12,6 @@ public class DropDownMenuStepDefinitions {
 
     public DropDownMenuStepDefinitions() {
         dropDownMenuPage = new DropDownMenuPage();
-    }
-
-    @Given("the user is on the dropDownMenu page")
-    public void userIsOnTheDropDownMenuPage() {
-        String dropDownMenu = "https://bonigarcia.dev/selenium-webdriver-java/dropdown-menu.html";
-        String currentUrl = dropDownMenuPage.getCurrentPageURL();
-        assertEquals(dropDownMenu, currentUrl);
     }
 
     @When("User clicks on the {string} dropdown button")

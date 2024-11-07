@@ -23,13 +23,6 @@ public class WebFormComponentsStepDefinitions {
         homePage = new HomePage();
     }
 
-    @Given("the user is on the webForm page")
-    public void user_is_on_the_page() {
-        String webFormPage = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
-        String currentUrl = webFormComponentsPage.getCurrentPageURL();
-        assertEquals(webFormPage, currentUrl);
-    }
-
     @When("User enters {string} into the text input field")
     public void user_enters_into_the_text_input_field(String text) {
         webFormComponentsPage.enterTextInput(WebFormTextElement.TEXT, text);
@@ -138,32 +131,29 @@ public class WebFormComponentsStepDefinitions {
 
 
     @When("User selects a file {string} located at {string}")
-    public void user_selects_a_file_using_the_file_input(String filename,String filePath) {
-     webFormComponentsPage.uploadFile(filePath);
+    public void user_selects_a_file_using_the_file_input(String filename, String filePath) {
+        webFormComponentsPage.uploadFile(filePath);
     }
 
     @Then("the file input should display {string}")
     public void the_file_input_should_display(String filename) {
-
-
         String displayedFileName = webFormComponentsPage.getUploadedFileName();
-        Assert.assertTrue("The file input did not display the expected filename",
-                displayedFileName.contains(filename));
+        Assert.assertTrue("The file input did not display the expected filename", displayedFileName.contains(filename));
     }
 
     @When("User unchecks the checkbox")
     public void user_checks_the_checkbox() {
-       webFormComponentsPage.checkedCheckboxClick();
+        webFormComponentsPage.checkedCheckboxClick();
     }
 
     @Then("the checkbox should be unchecked")
     public void the_checkbox_should_be_checked() {
-       Assert.assertFalse(webFormComponentsPage.isCheckboxChecked());
+        Assert.assertFalse(webFormComponentsPage.isCheckboxChecked());
     }
 
     @When("User checks the checkbox")
     public void user_unchecks_the_checkbox() {
-      webFormComponentsPage.checkedCheckboxClick();
+        webFormComponentsPage.checkedCheckboxClick();
     }
 
     @Then("the checkbox should be checked")
@@ -173,7 +163,7 @@ public class WebFormComponentsStepDefinitions {
 
     @When("User selects the {string} radio button")
     public void user_selects_the_radio_button(String string) {
-       webFormComponentsPage.selectRadioButton();
+        webFormComponentsPage.selectRadioButton();
     }
 
     @Then("the {string} radio button should be checked")
@@ -187,7 +177,4 @@ public class WebFormComponentsStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
-
-
 }

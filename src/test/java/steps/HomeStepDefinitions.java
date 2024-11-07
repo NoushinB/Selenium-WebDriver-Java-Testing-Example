@@ -1,15 +1,12 @@
 package steps;
 
+import core.library.PropertyLoader;
 import core.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class HomeStepDefinitions {
     final private HomePage homePage;
@@ -18,9 +15,16 @@ public class HomeStepDefinitions {
         homePage = new HomePage();
     }
 
+    @Given("the user is on the main page")
+    public void theUserIsOnTheMainPage() throws InterruptedException {
+        String url = PropertyLoader.getInstance().getBaseUrl();
+        homePage.goToUrl(url);
+    }
+
     @Given("the user is on the {string} page")
     public void theUserIsOnThePage(String page) throws InterruptedException {
-        homePage.goToUrl(page);
+        String url = PropertyLoader.getInstance().getBaseUrl() + page;
+        homePage.goToUrl(url);
     }
 
     @When("the user clicks the button named {string} in Section three")
@@ -29,10 +33,9 @@ public class HomeStepDefinitions {
     }
 
     @Then("the user is navigated to the {string} page")
-    public void theUserIsNavigatedToThePage(String url) {
+    public void theUserIsNavigatedToThePage(String page) {
+        String expectedUrl = PropertyLoader.getInstance().getBaseUrl() + page;
         String currentUrl = homePage.getCurrentPageURL();
-        assertEquals(url, currentUrl);
+        assertEquals(expectedUrl, currentUrl);
     }
-
-
 }

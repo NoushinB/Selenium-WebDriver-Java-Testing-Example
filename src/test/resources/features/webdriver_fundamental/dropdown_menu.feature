@@ -1,7 +1,7 @@
 Feature: Dropdown Menu Interaction
 
   Background:
-    Given the user is on the "https://bonigarcia.dev/selenium-webdriver-java/dropdown-menu.html" page
+    Given the user is on the "dropdown-menu.html" page
 
   Scenario Outline: User interacts with dropdown menus
     When User clicks on the "<button_name>" dropdown button

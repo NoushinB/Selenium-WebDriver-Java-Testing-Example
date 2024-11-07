@@ -1,7 +1,7 @@
 Feature: Navigation Page
 
   Background:
-    Given the user is on the "https://bonigarcia.dev/selenium-webdriver-java/navigation1.html" page
+    Given the user is on the "navigation1.html" page
 
   Scenario Outline: Click on a Button
     When User clicks the "<button_name>" button
