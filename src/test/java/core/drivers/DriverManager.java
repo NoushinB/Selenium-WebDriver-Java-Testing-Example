@@ -3,6 +3,9 @@ package core.drivers;
 
 import org.openqa.selenium.WebDriver;
 
+/**
+ * Managing web drivers instances for threads
+ */
 public class DriverManager {
     // ThreadLocal to store WebDriver instances for each thread
     private static final ThreadLocal<WebDriver> driverThread = new ThreadLocal<>();

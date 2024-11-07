@@ -16,7 +16,7 @@ public class Hooks {
     public static void setup() {
         // Any global setup for web testing
         PropertyLoader.getInstance().setBrowser(Constants.Browser.CHROME);
-        PropertyLoader.getInstance().setBaseUrl("https://bonigarcia.dev/selenium-webdriver-java/");
+        PropertyLoader.getInstance().setBaseUrl(Constants.Urls.BASE_URL);
     }
 
     @Before
