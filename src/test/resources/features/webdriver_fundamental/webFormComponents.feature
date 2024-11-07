@@ -108,34 +108,4 @@ Feature: Web Form Components
       | Checked radio |
 
 
-  # Scenario for Color Picker
-  Scenario Outline: Choosing a color from the color picker
-    When User chooses the color "<color>" from the color picker
-    Then the color picker should display the color "<color>"
-
-    Examples:
-      | color   |
-      | #FF5733 |
-      | #33FF57 |
-      | #5733FF |
-
-  # Scenario for Date Picker
-  Scenario Outline: Selecting a date from the date picker
-    When User selects the date "<date>" from the date picker
-    Then the date picker should display "<date>"
-
-    Examples:
-      | date       |
-      | 2024-08-23 |
-      | 2023-12-31 |
-      | 2025-01-01 |
-
-  # Scenario for Range Input
-  Scenario Outline: Adjusting the range input
-    When User moves the range slider to a value of "<value>"
-    Then the range input should display a value of "<value>"
-
-    Examples:
-      | value |
-      | 0     |
 

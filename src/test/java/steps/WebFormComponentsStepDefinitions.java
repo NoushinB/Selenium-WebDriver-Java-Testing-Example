@@ -188,40 +188,6 @@ public class WebFormComponentsStepDefinitions {
         throw new io.cucumber.java.PendingException();
     }
 
-    @When("User chooses the color {string} from the color picker")
-    public void user_chooses_the_color_from_the_color_picker(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
-    @Then("the color picker should display the color {string}")
-    public void the_color_picker_should_display_the_color(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @When("User selects the date {string} from the date picker")
-    public void user_selects_the_date_from_the_date_picker(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Then("the date picker should display {string}")
-    public void the_date_picker_should_display(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @When("User moves the range slider to a value of {string}")
-    public void user_moves_the_range_slider_to_a_value_of(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Then("the range input should display a value of {string}")
-    public void the_range_input_should_display_a_value_of(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
 }
