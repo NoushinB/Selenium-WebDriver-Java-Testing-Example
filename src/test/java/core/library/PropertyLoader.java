@@ -1,11 +1,16 @@
 package core.library;
 
+/**
+ * Singleton class to make sure we will only have one instance during running tests
+ */
 public class PropertyLoader {
 
+    // Volatile ensures that in a multi-threading environment all threads have the same instance value
     private static volatile PropertyLoader instance;
 
     public static PropertyLoader getInstance() {
         if (instance == null) {
+            // Synchronized ensures that in a multi-threading environment only one thread can modify the instance at a time
             synchronized (PropertyLoader.class) {
                 if (instance == null) {
                     instance = new PropertyLoader();
