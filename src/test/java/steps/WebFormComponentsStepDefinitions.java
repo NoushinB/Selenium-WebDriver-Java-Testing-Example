@@ -178,13 +178,14 @@ public class WebFormComponentsStepDefinitions {
         throw new io.cucumber.java.PendingException();
     }
 
-    @When("User chooses the color {string}, {string}, {string} from the color picker")
-    public void userChoosesTheColorFromTheColorPicker(String arg0, String arg1, String arg2) {
+    @When("^User chooses the color \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" from the color picker")
+    public void userChoosesTheColorFromTheColorPicker(int red, int green, int blue) {
+        webFormComponentsPage.selectColorByRgb(red, green, blue);
     }
 
     @Then("the color picker should display the color {string}")
-    public void theColorPickerShouldDisplayTheColor(String arg0) {
+    public void theColorPickerShouldDisplayTheColor(String expectedColor) {
+        String actualColor = webFormComponentsPage.getSelectedColor();
+        Assert.assertEquals(expectedColor, actualColor);
     }
-
-
 }
