@@ -114,9 +114,9 @@ Feature: Web Form Components
     Then the color picker should display the color "<color>"
     Examples:
       | R   | G   | B   | color   |
-      | 255 | 87  | 51  | #FF5733 |
-      | 51  | 255 | 87  | #33FF57 |
-      | 87  | 51  | 255 | #5733FF |
+      | 255 | 87  | 51  | #ff5733 |
+      | 51  | 255 | 87  | #33ff57 |
+      | 87  | 51  | 255 | #5733ff |
 
 
 
