@@ -177,4 +177,13 @@ public class WebFormComponentsStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
+    @When("User chooses the color {string} from the color picker")
+    public void userChoosesTheColorFromTheColorPicker(String arg0) {
+        
+    }
+
+    @Then("the color picker should display the color {string}")
+    public void theColorPickerShouldDisplayTheColor(String arg0) {
+    }
 }

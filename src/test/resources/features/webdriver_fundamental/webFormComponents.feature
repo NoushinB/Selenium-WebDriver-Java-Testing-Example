@@ -108,4 +108,16 @@ Feature: Web Form Components
       | Checked radio |
 
 
+    # Scenario for Color Picker
+  Scenario Outline: Choosing a color from the color picker
+    When User chooses the color "<color>" from the color picker
+    Then the color picker should display the color "<color>"
+    Examples:
+      | color   |
+      | #FF5733 |
+      | #33FF57 |
+      | #5733FF |
+
+
+
 
