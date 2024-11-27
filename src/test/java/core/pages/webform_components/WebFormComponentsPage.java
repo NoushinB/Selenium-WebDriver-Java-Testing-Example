@@ -168,5 +168,23 @@ public class WebFormComponentsPage extends BasePage {
         return dropDownDataList.getAttribute("value");
     }
 
+    public void selectColor(String colorHexCode) {
+        Objects.requireNonNull(colorPicker, "Color picker element not found.");
+        colorPicker.clear();
+        colorPicker.sendKeys(colorHexCode);
+    }
+
+    // Method to get the currently selected color value
+    public String getSelectedColor() {
+        Objects.requireNonNull(colorPicker, "Color picker element not found.");
+        return colorPicker.getAttribute("value");
+    }
+
+    // Method to verify if the color picker displays the correct color
+    public boolean isColorDisplayedCorrectly(String expectedColor) {
+        String selectedColor = getSelectedColor();
+        return expectedColor.equalsIgnoreCase(selectedColor);
+    }
+
 
 }
