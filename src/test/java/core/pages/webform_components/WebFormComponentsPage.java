@@ -149,11 +149,13 @@ public class WebFormComponentsPage extends BasePage {
     }
 
     public void selectRadioButton() {
-            checkedRadio.click();
+        checkedRadio.click();
     }
+
     public boolean isRadioButtonSelected() {
         return checkedRadio.isSelected();
     }
+
     public void selectDefaultRadio() {
         defaultRadio.click();
     }
@@ -168,23 +170,26 @@ public class WebFormComponentsPage extends BasePage {
         return dropDownDataList.getAttribute("value");
     }
 
-    public void selectColor(String colorHexCode) {
+    public void selectColorByRgb(int red, int green, int blue) {
         Objects.requireNonNull(colorPicker, "Color picker element not found.");
+        String color = rgbToHex(red, green, blue);
         colorPicker.clear();
-        colorPicker.sendKeys(colorHexCode);
+        colorPicker.sendKeys(color);
     }
 
-    // Method to get the currently selected color value
+    /**
+     * Method to get the current value of the color picker
+     * @return color picker selected value
+     */
     public String getSelectedColor() {
         Objects.requireNonNull(colorPicker, "Color picker element not found.");
         return colorPicker.getAttribute("value");
     }
 
-    // Method to verify if the color picker displays the correct color
-    public boolean isColorDisplayedCorrectly(String expectedColor) {
-        String selectedColor = getSelectedColor();
-        return expectedColor.equalsIgnoreCase(selectedColor);
+    /**
+     * Utility method to convert RGB to Hex
+     */
+    public String rgbToHex(int red, int green, int blue) {
+        return String.format("#%02x%02x%02x", red, green, blue);
     }
-
-
 }
