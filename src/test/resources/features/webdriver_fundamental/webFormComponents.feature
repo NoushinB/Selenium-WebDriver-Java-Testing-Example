@@ -118,6 +118,16 @@ Feature: Web Form Components
       | 51  | 255 | 87  | #33ff57 |
       | 87  | 51  | 255 | #5733ff |
 
+    # Scenario for Date Picker
+  Scenario Outline: Selecting a date from the date picker
+    When User selects the date "<date>" from the date picker
+    Then the date picker should display "<date>"
+    Examples:
+      | date       |
+      | 2024-08-23 |
+      | 2023-12-31 |
+      | 2025-01-01 |
+
 
 
 

@@ -188,4 +188,13 @@ public class WebFormComponentsStepDefinitions {
         String actualColor = webFormComponentsPage.getSelectedColor();
         Assert.assertEquals(expectedColor, actualColor);
     }
+
+    @When("User selects the date {string} from the date picker")
+    public void userSelectsTheDateFromTheDatePicker(String arg0) {
+        
+    }
+
+    @Then("the date picker should display {string}")
+    public void theDatePickerShouldDisplay(String arg0) {
+    }
 }
