@@ -192,4 +192,24 @@ public class WebFormComponentsPage extends BasePage {
     public String rgbToHex(int red, int green, int blue) {
         return String.format("#%02x%02x%02x", red, green, blue);
     }
+
+    /**
+     * Sets a specific date in the date picker input.
+     *
+     * @param date The date to set in the format YYYY-MM-DD.
+     */
+    public void setDatePickerValue(String date) {
+        Objects.requireNonNull(date, "Date cannot be null.");
+        datePicker.clear(); // Clear any existing value in the date picker
+        datePicker.sendKeys(date); // Input the desired date
+        datePicker.sendKeys(Keys.TAB); // Tab out to trigger any event listeners
+    }
+    /**
+     * Retrieves the current value displayed in the date picker input.
+     *
+     * @return The value of the date picker input.
+     */
+    public String getDatePickerValue() {
+        return datePicker.getAttribute("value");
+    }
 }
