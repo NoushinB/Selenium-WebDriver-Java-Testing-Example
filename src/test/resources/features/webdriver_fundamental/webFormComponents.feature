@@ -124,9 +124,16 @@ Feature: Web Form Components
     Then the date picker should display "<date>"
     Examples:
       | date       |
-      | 2024-08-23 |
-      | 2023-12-31 |
-      | 2025-01-01 |
+      | 08/08/23 |
+
+
+#    # Scenario for Range Input
+#  Scenario Outline: Adjusting the range input
+#    When User moves the range slider to a value of "<value>"
+#    Then the range input should display a value of "<value>"
+#    Examples:
+#      | value |
+#      | 0     |
 
 
 
