@@ -127,13 +127,13 @@ Feature: Web Form Components
       | 08/08/23 |
 
 
-#    # Scenario for Range Input
-#  Scenario Outline: Adjusting the range input
-#    When User moves the range slider to a value of "<value>"
-#    Then the range input should display a value of "<value>"
-#    Examples:
-#      | value |
-#      | 0     |
+    # Scenario for Range Input
+  Scenario Outline: Adjusting the range input
+    When User moves the range slider to a value of "<value>"
+    Then the range input should display a value of "<value>"
+    Examples:
+      | value |
+      | 0     |
 
 
 
