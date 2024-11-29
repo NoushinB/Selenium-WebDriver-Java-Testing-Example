@@ -190,11 +190,15 @@ public class WebFormComponentsStepDefinitions {
     }
 
     @When("User selects the date {string} from the date picker")
-    public void userSelectsTheDateFromTheDatePicker(String arg0) {
+    public void userSelectsTheDateFromTheDatePicker(String date) {
+        webFormComponentsPage.setDatePickerValue(date);
         
     }
 
     @Then("the date picker should display {string}")
-    public void theDatePickerShouldDisplay(String arg0) {
+    public void theDatePickerShouldDisplay(String expectedDate) {
+        String actualDate=webFormComponentsPage.getDatePickerValue();
+        Assert.assertEquals(expectedDate,actualDate);
+
     }
 }
