@@ -201,4 +201,13 @@ public class WebFormComponentsStepDefinitions {
         Assert.assertEquals(expectedDate,actualDate);
 
     }
+
+    @When("User moves the range slider to a value of {string}")
+    public void userMovesTheRangeSliderToAValueOf(String arg0) {
+        
+    }
+
+    @Then("the range input should display a value of {string}")
+    public void theRangeInputShouldDisplayAValueOf(String arg0) {
+    }
 }
