@@ -203,11 +203,17 @@ public class WebFormComponentsStepDefinitions {
     }
 
     @When("User moves the range slider to a value of {string}")
-    public void userMovesTheRangeSliderToAValueOf(String arg0) {
+    public void userMovesTheRangeSliderToAValueOf(String value) {
+        int number = Integer.valueOf(value);
+        webFormComponentsPage.adjustRangeSliderTo(number);
         
     }
 
     @Then("the range input should display a value of {string}")
-    public void theRangeInputShouldDisplayAValueOf(String arg0) {
+    public void theRangeInputShouldDisplayAValueOf(String expectedValue) {
+        int number=Integer.parseInt(expectedValue);
+        int actualValue= Integer.parseInt(webFormComponentsPage.getRangeSliderValue());
+        Assert.assertEquals(number,actualValue);
+
     }
 }
