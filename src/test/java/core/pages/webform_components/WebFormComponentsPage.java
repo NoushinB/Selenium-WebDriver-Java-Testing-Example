@@ -212,4 +212,34 @@ public class WebFormComponentsPage extends BasePage {
     public String getDatePickerValue() {
         return datePicker.getAttribute("value");
     }
+    /**
+     * Adjust the range slider to a specific value.
+     *
+     * @param value The target value to set for the slider.
+     */
+    public void adjustRangeSliderTo(int value) {
+        int currentValue = Integer.parseInt(rangeSlider.getAttribute("value"));
+        int offset = value - currentValue;
+
+        // Simulate range slider adjustment using keyboard actions
+        for (int i = 0; i < Math.abs(offset); i++) {
+            if (offset > 0) {
+                rangeSlider.sendKeys(Keys.ARROW_RIGHT);
+            } else {
+                rangeSlider.sendKeys(Keys.ARROW_LEFT);
+            }
+        }
+    }
+
+    /**
+     * Retrieve the current value of the range slider.
+     *
+     * @return The current value of the slider as a String.
+     */
+    public String getRangeSliderValue() {
+        return rangeSlider.getAttribute("value");
+    }
+
+
+
 }
