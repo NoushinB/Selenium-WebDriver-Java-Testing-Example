@@ -30,7 +30,7 @@ public class WebFormComponentsPage extends BasePage {
     private WebElement returnToIndex;
     @FindBy(xpath = "//select[@name='my-select']")
     private WebElement dropDownSelect;
-    @FindBy(xpath = "//input[@placeholder='Type to search...']")
+    @FindBy(xpath = "//input[@class='form-control' and @name='my-datalist' and @list='my-options']")
     private WebElement dropDownDataList;
     @FindBy(xpath = "//input[@name='my-file']")
     private WebElement inputFile;
@@ -121,13 +121,35 @@ public class WebFormComponentsPage extends BasePage {
     }
 
     public void enterTextInDatalist(String query) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(dropDownDataList));  // Wait for the input field to be visible
         dropDownDataList.clear();
         dropDownDataList.sendKeys(query);
     }
 
     public List<WebElement> getSuggestions() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//datalist[@id='my-options']/option")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//datalist[@id='my-options']")));
+
+        // Get all the options inside the datalist
+        List<WebElement> options = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//datalist[@id='my-options']/option")));
+
+        // Debugging: print number of options
+        System.out.println("Number of options found: " + options.size());
+
+        return options;
+    }
+
+    public void selectDatalistOption(String option) {
+        enterTextInDatalist(option);  // Type text to filter options
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//datalist[@id='my-options']/option[@value='" + option + "']")));
+        dropDownDataList.sendKeys(Keys.ARROW_DOWN);  // Navigate to the first suggestion
+        dropDownDataList.click();       // Select the highlighted suggestion
+    }
+
+    public String getDatalistInputValue() {
+        return dropDownDataList.getAttribute("value");
     }
 
     public void uploadFile(String filePath) {
@@ -158,16 +180,6 @@ public class WebFormComponentsPage extends BasePage {
 
     public void selectDefaultRadio() {
         defaultRadio.click();
-    }
-
-    public void selectDatalistOption(String option) {
-        enterTextInDatalist(option);  // Type text to filter options
-        dropDownDataList.sendKeys(Keys.ARROW_DOWN);  // Navigate to the first suggestion
-        dropDownDataList.sendKeys(Keys.ENTER);       // Select the highlighted suggestion
-    }
-
-    public String getDatalistInputValue() {
-        return dropDownDataList.getAttribute("value");
     }
 
     public void selectColorByRgb(int red, int green, int blue) {
