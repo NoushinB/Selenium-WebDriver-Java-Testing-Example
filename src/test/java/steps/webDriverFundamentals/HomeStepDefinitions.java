@@ -1,7 +1,7 @@
-package steps;
+package steps.webDriverFundamentals;
 
 import core.library.PropertyLoader;
-import core.pages.HomePage;
+import core.pages.webDriverFundamentals.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

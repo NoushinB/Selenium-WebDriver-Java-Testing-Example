@@ -1,8 +1,8 @@
-package steps;
+package steps.webDriverFundamentals;
 
-import core.pages.HomePage;
-import core.pages.webform_components.WebFormComponentsPage;
-import core.pages.webform_components.WebFormTextElement;
+import core.pages.webDriverFundamentals.HomePage;
+import core.pages.webDriverFundamentals.webform_components.WebFormComponentsPage;
+import core.pages.webDriverFundamentals.webform_components.WebFormTextElement;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

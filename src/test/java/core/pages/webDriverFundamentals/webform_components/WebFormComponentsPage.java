@@ -1,4 +1,4 @@
-package core.pages.webform_components;
+package core.pages.webDriverFundamentals.webform_components;
 
 import core.pages.common.BasePage;
 import org.openqa.selenium.By;

@@ -1,6 +1,6 @@
-package steps;
+package steps.webDriverFundamentals;
 
-import core.pages.NavigationPage;
+import core.pages.webDriverFundamentals.NavigationPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

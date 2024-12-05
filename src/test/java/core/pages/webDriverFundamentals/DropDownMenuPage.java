@@ -1,4 +1,4 @@
-package core.pages;
+package core.pages.webDriverFundamentals;
 
 import core.pages.common.BasePage;
 import org.openqa.selenium.NotFoundException;
