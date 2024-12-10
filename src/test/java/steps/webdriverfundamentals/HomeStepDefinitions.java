@@ -1,4 +1,4 @@
-package steps.webDriverFundamentals;
+package steps.webdriverfundamentals;
 
 import core.library.PropertyLoader;
 import core.pages.webDriverFundamentals.HomePage;

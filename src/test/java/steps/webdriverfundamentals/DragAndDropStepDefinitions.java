@@ -1,4 +1,4 @@
-package steps.webDriverFundamentals;
+package steps.webdriverfundamentals;
 
 import core.pages.webDriverFundamentals.DragAndDropPage;
 import io.cucumber.java.en.Given;

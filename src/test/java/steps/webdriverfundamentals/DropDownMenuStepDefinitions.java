@@ -1,4 +1,4 @@
-package steps.webDriverFundamentals;
+package steps.webdriverfundamentals;
 
 import core.pages.webDriverFundamentals.DropDownMenuPage;
 import io.cucumber.java.en.And;

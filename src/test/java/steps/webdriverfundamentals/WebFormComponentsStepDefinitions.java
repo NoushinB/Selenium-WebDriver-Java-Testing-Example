@@ -1,4 +1,4 @@
-package steps.webDriverFundamentals;
+package steps.webdriverfundamentals;
 
 import core.pages.webDriverFundamentals.HomePage;
 import core.pages.webDriverFundamentals.webform_components.WebFormComponentsPage;

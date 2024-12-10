@@ -1,4 +1,4 @@
-package steps.webDriverFundamentals;
+package steps.webdriverfundamentals;
 
 public class InfiniteScrollingStepDefinitions {
 }
