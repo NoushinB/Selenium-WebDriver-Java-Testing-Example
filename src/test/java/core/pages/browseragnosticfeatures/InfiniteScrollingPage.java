@@ -40,5 +40,21 @@ public class InfiniteScrollingPage extends BasePage {
         return false;
     }
 
+    /**
+     * Performs infinite scrolling until the end of the page.
+     *
+     * @param timeoutSeconds Maximum timeout to wait for new content.
+     */
+    public void performInfiniteScroll(int timeoutSeconds) {
+        int previousContentLength = 0;
+        while (true) {
+            scrollToBottom();
+            if (!waitForNewContent(previousContentLength, timeoutSeconds)) {
+                break; // Exit if no new content is loaded within the timeout.
+            }
+            previousContentLength = content.getText().length();
+        }
+    }
+
 
 }
