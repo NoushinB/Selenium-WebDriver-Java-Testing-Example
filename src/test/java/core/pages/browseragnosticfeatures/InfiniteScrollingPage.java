@@ -18,6 +18,27 @@ public class InfiniteScrollingPage extends BasePage {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 
+    /**
+     * Waits for new content to load after scrolling.
+     *
+     * @param previousContentLength Length of the content before scrolling.
+     * @param timeoutSeconds        Timeout in seconds to wait for new content.
+     * @return true if new content is loaded, false otherwise.
+     */
+    public boolean waitForNewContent(int previousContentLength, int timeoutSeconds) {
+        for (int i = 0; i < timeoutSeconds; i++) {
+            int currentContentLength = content.getText().length();
+            if (currentContentLength > previousContentLength) {
+                return true;
+            }
+            try {
+                Thread.sleep(1000); // Wait for 1 second before checking again.
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        return false;
+    }
 
 
 }
