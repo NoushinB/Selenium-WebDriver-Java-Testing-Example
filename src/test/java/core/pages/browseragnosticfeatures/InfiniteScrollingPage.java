@@ -1,60 +1,64 @@
 package core.pages.browseragnosticfeatures;
 
 import core.pages.common.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class InfiniteScrollingPage extends BasePage {
     @FindBy(id = "content")
     private WebElement content;
 
+
     /**
-     * Scrolls down to the bottom of the page using JavaScript.
+     * Checks if a specific section is visible on the page.
+     *
+     * @param sectionName The name or identifier of the section to check.
+     * @return true if the section is visible, false otherwise.
+     */
+    public boolean isSectionVisible(String sectionName) {
+        try {
+            // Locator to find the section by `data-name` or `id`
+            By sectionLocator = By.xpath(String.format("//section[@data-name='%s' or @id='%s']", sectionName, sectionName));
+            WebElement section = driver.findElement(sectionLocator);
+            return section.isDisplayed();
+        } catch (Exception e) {
+            return false; // Handle any exceptions (e.g., NoSuchElementException)
+        }
+    }
+
+    /**
+     * Scrolls to the bottom of the content area using JavaScript.
      */
     public void scrollToBottom() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        try {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTo(0, arguments[0].scrollHeight);", content);
+            Thread.sleep(1000); // Allow time for content to load dynamically
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to scroll to the bottom of the content area.", e);
+        }
     }
 
     /**
-     * Waits for new content to load after scrolling.
+     * Checks if new content is loaded dynamically by comparing content size.
      *
-     * @param previousContentLength Length of the content before scrolling.
-     * @param timeoutSeconds        Timeout in seconds to wait for new content.
      * @return true if new content is loaded, false otherwise.
      */
-    public boolean waitForNewContent(int previousContentLength, int timeoutSeconds) {
-        for (int i = 0; i < timeoutSeconds; i++) {
-            int currentContentLength = content.getText().length();
-            if (currentContentLength > previousContentLength) {
-                return true;
-            }
-            try {
-                Thread.sleep(1000); // Wait for 1 second before checking again.
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Performs infinite scrolling until the end of the page.
-     *
-     * @param timeoutSeconds Maximum timeout to wait for new content.
-     */
-    public void performInfiniteScroll(int timeoutSeconds) {
-        int previousContentLength = 0;
-        while (true) {
+    public boolean isNewContentLoaded() {
+        try {
+            int initialHeight = content.getSize().getHeight();
             scrollToBottom();
-            if (!waitForNewContent(previousContentLength, timeoutSeconds)) {
-                break; // Exit if no new content is loaded within the timeout.
-            }
-            previousContentLength = content.getText().length();
+            // Sleep for 1 second to wait for new content to load (replaceable with more efficient waits if needed)
+            Thread.sleep(1000);
+            int newHeight = content.getSize().getHeight();
+            return newHeight > initialHeight;
+        } catch (Exception e) {
+            return false; // Return false if new content is not detected
         }
     }
-
 
 }
