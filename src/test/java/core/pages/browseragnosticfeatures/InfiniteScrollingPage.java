@@ -61,4 +61,13 @@ public class InfiniteScrollingPage extends BasePage {
         }
     }
 
+    /**
+     * Gets the current height of the content area.
+     *
+     * @return the height of the content area.
+     */
+    public int getContentHeight() {
+        return content.getSize().getHeight();
+    }
+
 }
