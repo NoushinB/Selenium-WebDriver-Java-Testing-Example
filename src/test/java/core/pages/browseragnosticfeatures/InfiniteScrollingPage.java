@@ -15,11 +15,10 @@ public class InfiniteScrollingPage extends BasePage {
     @FindBy(id = "content")
     private WebElement content;
 
-    private final WebDriver driver;
     private final WebDriverWait wait;
 
-    public InfiniteScrollingPage(WebDriver driver) {
-        this.driver = driver;
+    public InfiniteScrollingPage() {
+
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
