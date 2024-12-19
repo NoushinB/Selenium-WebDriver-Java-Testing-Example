@@ -3,15 +3,25 @@ package core.pages.browseragnosticfeatures;
 import core.pages.common.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import java.time.Duration;
 
 public class InfiniteScrollingPage extends BasePage {
     @FindBy(id = "content")
     private WebElement content;
 
+    private final WebDriver driver;
+    private final WebDriverWait wait;
+
+    public InfiniteScrollingPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
 
     /**
      * Checks if a specific section is visible on the page.
@@ -21,12 +31,11 @@ public class InfiniteScrollingPage extends BasePage {
      */
     public boolean isSectionVisible(String sectionName) {
         try {
-            // Locator to find the section by `data-name` or `id`
             By sectionLocator = By.xpath(String.format("//section[@data-name='%s' or @id='%s']", sectionName, sectionName));
-            WebElement section = driver.findElement(sectionLocator);
+            WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(sectionLocator));
             return section.isDisplayed();
         } catch (Exception e) {
-            return false; // Handle any exceptions (e.g., NoSuchElementException)
+            return false;
         }
     }
 
@@ -35,8 +44,18 @@ public class InfiniteScrollingPage extends BasePage {
      */
     public void scrollToBottom() {
         try {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTo(0, arguments[0].scrollHeight);", content);
-            Thread.sleep(1000); // Allow time for content to load dynamically
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+            boolean isScrollable = (Boolean) js.executeScript(
+                    "return arguments[0].scrollHeight > arguments[0].clientHeight;", content);
+
+            if (isScrollable) {
+                js.executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", content);
+            } else {
+                js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            }
+
+            Thread.sleep(1000); // Allow time for dynamic content to load
         } catch (Exception e) {
             throw new RuntimeException("Unable to scroll to the bottom of the content area.", e);
         }
@@ -51,12 +70,11 @@ public class InfiniteScrollingPage extends BasePage {
         try {
             int initialHeight = content.getSize().getHeight();
             scrollToBottom();
-            // Sleep for 1 second to wait for new content to load (replaceable with more efficient waits if needed)
-            Thread.sleep(1000);
+            Thread.sleep(1000); // Allow time for dynamic content to load
             int newHeight = content.getSize().getHeight();
             return newHeight > initialHeight;
         } catch (Exception e) {
-            return false; // Return false if new content is not detected
+            return false;
         }
     }
 
@@ -69,4 +87,12 @@ public class InfiniteScrollingPage extends BasePage {
         return content.getSize().getHeight();
     }
 
+    /**
+     * Gets the current page URL.
+     *
+     * @return the current URL of the page.
+     */
+    public String getCurrentPageURL() {
+        return driver.getCurrentUrl();
+    }
 }
