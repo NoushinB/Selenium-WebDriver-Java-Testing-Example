@@ -14,4 +14,37 @@ This project demonstrates how to build a basic Selenium WebDriver testing framew
 - **Sample test scenarios** that cover various web components (text input, password fields, checkboxes, dropdowns, etc.).
 - **Cucumber-based feature files** for defining test scenarios in a behavior-driven development (BDD) style.
 
+## Cucumber-Based Feature Files  
+
+This repository includes comprehensive Cucumber feature files written in Gherkin syntax. These files define test scenarios for behavior-driven development (BDD) and cover a wide range of functionalities:  
+
+- **Infinite Scroll**:  
+  - Validates dynamic content loading as the user scrolls to the bottom of the page.  
+  - Ensures new content is appended without triggering a full-page reload.  
+
+- **Drag and Drop**:  
+  - Tests drag-and-drop functionality, verifying that elements are repositioned correctly.  
+
+- **Dropdown Menu Interaction**:  
+  - Scenarios for interacting with dropdown buttons and verifying menu item visibility and selection.  
+
+- **Home Page Navigation**:  
+  - Tests navigation to various pages using specific buttons on the home page.  
+
+- **Web Form Components**:  
+  - Covers interaction with various form elements, including:  
+    - Text inputs and password fields.  
+    - Dropdown menus (select and datalist).  
+    - File uploads.  
+    - Checkboxes and radio buttons.  
+    - Date picker, color picker, and range slider components.  
+
+- **Navigation Page**:  
+  - Validates button interactions and dynamic content updates.  
+
+- **Additional Scenarios**:  
+  - Tests advanced UI interactions, including:  
+    - Color selection using a color picker.  
+    - Date selection via a date picker.  
+    - Adjusting values with a range slider.  
 
