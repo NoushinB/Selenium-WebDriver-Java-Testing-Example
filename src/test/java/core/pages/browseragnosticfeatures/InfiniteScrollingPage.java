@@ -1,38 +1,17 @@
 package core.pages.browseragnosticfeatures;
 
 import core.pages.common.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class InfiniteScrollingPage extends BasePage {
     @FindBy(id = "content")
     private WebElement content;
 
-    private final WebDriverWait wait;
-
-    public InfiniteScrollingPage() {
-
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
-    /**
-     * Checks if a specific section is visible on the page.
-     *
-     * @param sectionName The name or identifier of the section to check.
-     * @return true if the section is visible, false otherwise.
-     */
-    public boolean isSectionVisible(String sectionName) {
+    public boolean isInfiniteScrollContentVisible() {
         try {
-            By sectionLocator = By.xpath(String.format("//section[@data-name='%s' or @id='%s']", sectionName, sectionName));
-            WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(sectionLocator));
-            return section.isDisplayed();
+            return content.isDisplayed();
         } catch (Exception e) {
             return false;
         }
