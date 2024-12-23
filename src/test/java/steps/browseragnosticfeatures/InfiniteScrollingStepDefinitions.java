@@ -7,24 +7,21 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class InfiniteScrollingStepDefinitions {
-    private InfiniteScrollingPage infiniteScrollingPage;
+
+    private final InfiniteScrollingPage infiniteScrollingPage;
 
     public InfiniteScrollingStepDefinitions() {
         infiniteScrollingPage = new InfiniteScrollingPage();
     }
 
-
-    @And("the {string} section is visible on the page")
-    public void theSectionIsVisibleOnThePage(String sectionName) {
-        boolean isVisible = infiniteScrollingPage.isSectionVisible(sectionName);
-        Assert.assertTrue("The section '" + sectionName + "' is not visible on the page.", isVisible);
+    @And("the Infinite scroll section is visible on the page")
+    public void theSectionIsVisibleOnThePage() {
+        boolean isVisible = infiniteScrollingPage.isInfiniteScrollContentVisible();
+        Assert.assertTrue("The Infinite scroll content is not visible on the page.", isVisible);
     }
 
-    @When("the user scrolls to the bottom of the visible content in the {string} section")
-    public void theUserScrollsToTheBottomOfTheVisibleContentInTheSection(String sectionName) {
-        boolean isVisible = infiniteScrollingPage.isSectionVisible(sectionName);
-        Assert.assertTrue("The section '" + sectionName + "' is not visible, so scrolling cannot be performed.", isVisible);
-
+    @When("the user scrolls to the bottom of the visible content in the Infinite scroll section")
+    public void theUserScrollsToTheBottomOfTheVisibleContentInTheSection() {
         infiniteScrollingPage.scrollToBottom();
     }
 
