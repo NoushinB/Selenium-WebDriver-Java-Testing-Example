@@ -3,7 +3,7 @@ package steps.browseragnosticfeatures;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class dialogBoxStepDefinitions {
+public class DialogBoxStepDefinitions {
     @When("the user click the {string} button")
     public void the_user_click_the_button(String string) {
         // Write code here that turns the phrase above into concrete actions
