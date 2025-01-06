@@ -6,39 +6,39 @@ Feature: Button Functionalities
     Given the user is on the "dialog-boxes.html" page
 
   Scenario: Verify the alert button displays an alert with the correct message
-    When I click the "Launch alert" button
+    When the user click the "Launch alert" button
     Then an alert should appear with the text "Hello world!"
-    And I accept the alert
+    And the user accept the alert
 
   Scenario: Verify the confirm button updates the message when accepted
-    When I click the "Launch confirm" button
-    And I accept the confirmation dialog
+    When the user click the "Launch confirm" button
+    And the user accept the confirmation dialog
     Then the text "You chose: true" should appear in the confirmation message area
 
   Scenario: Verify the confirm button updates the message when canceled
-    When I click the "Launch confirm" button
-    And I cancel the confirmation dialog
+    When the user click the "Launch confirm" button
+    And the user cancel the confirmation dialog
     Then the text "You chose: false" should appear in the confirmation message area
 
   Scenario: Verify the prompt button updates the message with user input
-    When I click the "Launch prompt" button
-    And I type "Alice" into the prompt dialog
-    And I confirm the prompt dialog
+    When the user click the "Launch prompt" button
+    And the user type "Alice" into the prompt dialog
+    And the user confirm the prompt dialog
     Then the text "You typed: Alice" should appear in the prompt message area
 
   Scenario: Verify the prompt button updates the message when prompt is canceled
-    When I click the "Launch prompt" button
-    And I cancel the prompt dialog
+    When the user click the "Launch prompt" button
+    And the user cancel the prompt dialog
     Then the prompt message area should remain empty or display a default state
 
   Scenario: Verify the modal dialog updates the message when closed
-    When I click the "Launch modal" button
+    When the user click the "Launch modal" button
     Then the modal dialog should appear
-    When I click the "Close" button in the modal
+    When the user click the "Close" button in the modal
     Then the text "You chose: Close" should appear in the modal message area
 
   Scenario: Verify the modal dialog updates the message when changes are saved
-    When I click the "Launch modal" button
+    When the user click the "Launch modal" button
     Then the modal dialog should appear
-    When I click the "Save changes" button in the modal
+    When the user click the "Save changes" button in the modal
     Then the text "You chose: Save changes" should appear in the modal message area
