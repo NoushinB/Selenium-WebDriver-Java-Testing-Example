@@ -1,9 +1,16 @@
 package steps.browseragnosticfeatures;
 
+import core.pages.browseragnosticfeatures.DialogBoxPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DialogBoxStepDefinitions {
+    private final DialogBoxPage dialogBoxPage;
+
+    public DialogBoxStepDefinitions() {
+        dialogBoxPage = new DialogBoxPage();
+    }
+
     @When("the user click the {string} button")
     public void the_user_click_the_button(String string) {
         // Write code here that turns the phrase above into concrete actions
