@@ -13,8 +13,7 @@ public class DialogBoxStepDefinitions {
 
     @When("the user click the {string} button")
     public void the_user_click_the_button(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      dialogBoxPage.clickOnButton(string);
     }
 
     @Then("an alert should appear with the text {string}")
