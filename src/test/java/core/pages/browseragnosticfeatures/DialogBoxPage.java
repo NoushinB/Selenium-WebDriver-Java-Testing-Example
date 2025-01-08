@@ -32,23 +32,18 @@ public class DialogBoxPage extends BasePage {
     @FindBy(id = "modal-text")
     private WebElement modalText;
 
+
+
     // Click a button
-    public void clickButton(String buttonName) {
-        switch (buttonName) {
-            case "launchAlertButton":
-                launchAlertButton.click();
-                break;
-            case "launchConfirmButton":
-                launchConfirmButton.click();
-                break;
-            case "launchPromptButton":
-                launchPromptButton.click();
-                break;
-            case "launchModalButton":
-                launchModalButton.click();
-                break;
-            default:
-                throw new IllegalArgumentException("Button name not recognized: " + buttonName);
-        }
+    private WebElement getButton(String buttonName) {
+        return switch (buttonName) {
+            case "Launch alert" -> launchAlertButton;
+            case "Launch confirm" -> launchConfirmButton;
+            case "Launch prompt" -> launchPromptButton;
+            case "Launch modal" -> launchModalButton;
+            default -> throw new IllegalArgumentException("Invalid button name: " + buttonName);
+        };
     }
+
+
 }
