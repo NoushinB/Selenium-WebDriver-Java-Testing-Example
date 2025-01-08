@@ -45,5 +45,7 @@ public class DialogBoxPage extends BasePage {
         };
     }
 
-
+    public void clickOnButton(String buttonName) {
+        getButton(buttonName).click();
+    }
 }
