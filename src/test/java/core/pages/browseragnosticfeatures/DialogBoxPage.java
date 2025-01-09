@@ -1,6 +1,7 @@
 package core.pages.browseragnosticfeatures;
 
 import core.pages.common.BasePage;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,5 +48,11 @@ public class DialogBoxPage extends BasePage {
 
     public void clickOnButton(String buttonName) {
         getButton(buttonName).click();
+    }
+    public String getAlertText() {
+        // Switch to the alert
+        Alert alert = driver.switchTo().alert();
+        // Get the text of the alert
+        return alert.getText();
     }
 }
