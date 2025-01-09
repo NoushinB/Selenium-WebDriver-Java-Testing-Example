@@ -4,6 +4,8 @@ import core.pages.browseragnosticfeatures.DialogBoxPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertEquals;
+
 public class DialogBoxStepDefinitions {
     private final DialogBoxPage dialogBoxPage;
 
@@ -12,14 +14,15 @@ public class DialogBoxStepDefinitions {
     }
 
     @When("the user click the {string} button")
-    public void the_user_click_the_button(String string) {
-      dialogBoxPage.clickOnButton(string);
+    public void the_user_click_the_button(String buttonName) {
+      dialogBoxPage.clickOnButton(buttonName);
     }
 
     @Then("an alert should appear with the text {string}")
-    public void an_alert_should_appear_with_the_text(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void an_alert_should_appear_with_the_text(String expectedText) {
+        String alertText = dialogBoxPage.getAlertText();
+
+        assertEquals(expectedText, alertText);
     }
 
     @Then("the user accept the alert")
