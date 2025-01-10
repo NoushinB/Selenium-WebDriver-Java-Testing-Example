@@ -4,6 +4,10 @@ import core.pages.common.BasePage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DialogBoxPage extends BasePage {
 
@@ -54,5 +58,15 @@ public class DialogBoxPage extends BasePage {
         Alert alert = driver.switchTo().alert();
         // Get the text of the alert
         return alert.getText();
+    }
+    public void acceptAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        try {
+            Thread.sleep(2000); // Add a fixed 2-second delay
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        alert.accept();
     }
 }
