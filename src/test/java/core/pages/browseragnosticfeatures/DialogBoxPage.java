@@ -69,4 +69,8 @@ public class DialogBoxPage extends BasePage {
         }
         alert.accept();
     }
+    public String getConfirmationMessageText() {
+
+        return confirmText.getText();
+    }
 }
