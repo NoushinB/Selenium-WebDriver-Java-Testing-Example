@@ -27,8 +27,7 @@ public class DialogBoxStepDefinitions {
 
     @Then("the user accept the alert")
     public void the_user_accept_the_alert() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+     dialogBoxPage.acceptAlert();
     }
 
     @When("the user accept the confirmation dialog")
