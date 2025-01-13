@@ -32,14 +32,13 @@ public class DialogBoxStepDefinitions {
 
     @When("the user accept the confirmation dialog")
     public void the_user_accept_the_confirmation_dialog() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        dialogBoxPage.acceptAlert();
     }
 
     @Then("the text {string} should appear in the confirmation message area")
-    public void the_text_should_appear_in_the_confirmation_message_area(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_text_should_appear_in_the_confirmation_message_area(String expectedText) {
+        String actualText = dialogBoxPage.getConfirmationMessageText();
+        assertEquals(expectedText, actualText);
     }
 
     @When("the user cancel the confirmation dialog")
