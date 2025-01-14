@@ -80,6 +80,16 @@ public class DialogBoxPage extends BasePage {
         Alert alert = waitForAlert();
         alert.dismiss();
     }
+    public void typeIntoPromptDialog(String text) {
+        // Wait for the prompt dialog to appear
+        Alert alert = waitForAlert();
+
+        // Enter text into the prompt
+        alert.sendKeys(text);
+
+        // Accept the prompt (equivalent to clicking "OK")
+        alert.accept();
+    }
     public String getConfirmationMessageText() {
 
         return confirmText.getText();
