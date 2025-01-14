@@ -59,15 +59,26 @@ public class DialogBoxPage extends BasePage {
         // Get the text of the alert
         return alert.getText();
     }
-    public void acceptAlert() {
+    private Alert waitForAlert() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        return wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public void acceptAlert() {
+        Alert alert = waitForAlert();
+        // Optional: Add delay only if required
         try {
             Thread.sleep(2000); // Add a fixed 2-second delay
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt(); // Restore interrupted status
+            throw new RuntimeException("Thread sleep was interrupted", e);
         }
         alert.accept();
+    }
+
+    public void cancelConfirmation() {
+        Alert alert = waitForAlert();
+        alert.dismiss();
     }
     public String getConfirmationMessageText() {
 
