@@ -43,8 +43,7 @@ public class DialogBoxStepDefinitions {
 
     @When("the user cancel the confirmation dialog")
     public void the_user_cancel_the_confirmation_dialog() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       dialogBoxPage.cancelConfirmation();
     }
 
     @When("the user type {string} into the prompt dialog")
