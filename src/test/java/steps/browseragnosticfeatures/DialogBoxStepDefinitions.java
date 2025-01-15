@@ -47,9 +47,8 @@ public class DialogBoxStepDefinitions {
     }
 
     @When("the user type {string} into the prompt dialog")
-    public void the_user_type_into_the_prompt_dialog(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_user_type_into_the_prompt_dialog(String text) {
+       dialogBoxPage.typeIntoPromptDialog(text);
     }
 
     @When("the user confirm the prompt dialog")
