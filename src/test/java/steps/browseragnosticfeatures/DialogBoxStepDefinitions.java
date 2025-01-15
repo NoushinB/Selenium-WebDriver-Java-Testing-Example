@@ -53,8 +53,7 @@ public class DialogBoxStepDefinitions {
 
     @When("the user confirm the prompt dialog")
     public void the_user_confirm_the_prompt_dialog() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+      dialogBoxPage.acceptAlert();
     }
 
     @Then("the text {string} should appear in the prompt message area")
