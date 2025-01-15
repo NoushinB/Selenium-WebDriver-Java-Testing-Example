@@ -22,9 +22,9 @@ Feature: Button Functionalities
 
   Scenario: Verify the prompt button updates the message with user input
     When the user click the "Launch prompt" button
-    And the user type "Alice" into the prompt dialog
+    And the user type "Noushin" into the prompt dialog
     And the user confirm the prompt dialog
-    Then the text "You typed: Alice" should appear in the prompt message area
+    Then the text "You typed: Noushin" should appear in the prompt message area
 
   Scenario: Verify the prompt button updates the message when prompt is canceled
     When the user click the "Launch prompt" button
