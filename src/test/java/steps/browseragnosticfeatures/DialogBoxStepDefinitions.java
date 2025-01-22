@@ -15,7 +15,7 @@ public class DialogBoxStepDefinitions {
 
     @When("the user click the {string} button")
     public void the_user_click_the_button(String buttonName) {
-      dialogBoxPage.clickOnButton(buttonName);
+        dialogBoxPage.clickOnButton(buttonName);
     }
 
     @Then("an alert should appear with the text {string}")
@@ -27,7 +27,7 @@ public class DialogBoxStepDefinitions {
 
     @Then("the user accept the alert")
     public void the_user_accept_the_alert() {
-     dialogBoxPage.acceptAlert();
+        dialogBoxPage.acceptAlert();
     }
 
     @When("the user accept the confirmation dialog")
@@ -43,23 +43,23 @@ public class DialogBoxStepDefinitions {
 
     @When("the user cancel the confirmation dialog")
     public void the_user_cancel_the_confirmation_dialog() {
-       dialogBoxPage.cancelConfirmation();
+        dialogBoxPage.cancelConfirmation();
     }
 
     @When("the user type {string} into the prompt dialog")
     public void the_user_type_into_the_prompt_dialog(String text) {
-       dialogBoxPage.typeIntoPromptDialog(text);
+        dialogBoxPage.typeIntoPromptDialog(text);
     }
 
     @When("the user confirm the prompt dialog")
     public void the_user_confirm_the_prompt_dialog() {
-      dialogBoxPage.acceptAlert();
+        dialogBoxPage.acceptAlert();
     }
 
     @Then("the text {string} should appear in the prompt message area")
-    public void the_text_should_appear_in_the_prompt_message_area(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_text_should_appear_in_the_prompt_message_area(String expectedText) {
+        String actualText = dialogBoxPage.getPromptMessageText();
+        assertEquals(expectedText, actualText);
     }
 
     @When("the user cancel the prompt dialog")
