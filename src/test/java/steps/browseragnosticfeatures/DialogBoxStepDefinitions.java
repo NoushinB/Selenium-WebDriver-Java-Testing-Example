@@ -64,8 +64,7 @@ public class DialogBoxStepDefinitions {
 
     @When("the user cancel the prompt dialog")
     public void the_user_cancel_the_prompt_dialog() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        dialogBoxPage.cancelConfirmation();
     }
 
     @Then("the prompt message area should remain empty or display a default state")
