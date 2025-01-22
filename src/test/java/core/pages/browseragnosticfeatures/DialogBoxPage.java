@@ -94,4 +94,7 @@ public class DialogBoxPage extends BasePage {
 
         return confirmText.getText();
     }
+    public String getPromptMessageText() {
+        return promptText.getText();
+    }
 }
