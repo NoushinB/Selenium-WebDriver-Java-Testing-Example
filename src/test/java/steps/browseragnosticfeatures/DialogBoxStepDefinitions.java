@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DialogBoxStepDefinitions {
     private final DialogBoxPage dialogBoxPage;
@@ -69,8 +70,14 @@ public class DialogBoxStepDefinitions {
 
     @Then("the prompt message area should remain empty or display a default state")
     public void the_prompt_message_area_should_remain_empty_or_display_a_default_state() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String actualText = dialogBoxPage.getPromptMessageText();
+
+        // Define the expected default state (assuming it's an empty string or some default value like "No input")
+        String defaultState = "You typed: null"; // Update this value if there's a default message in your application
+assertTrue("The prompt message area is not empty or in the default state. Found: " + actualText,
+        actualText.isEmpty() || actualText.equals(defaultState));
+
+
     }
 
     @Then("the modal dialog should appear")
