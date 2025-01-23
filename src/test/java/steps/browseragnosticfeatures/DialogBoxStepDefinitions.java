@@ -79,12 +79,10 @@ assertTrue("The prompt message area is not empty or in the default state. Found:
 
 
     }
-
-    @Then("the modal dialog should appear")
-    public void the_modal_dialog_should_appear() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("the modal dialog should appear with the title {string}")
+    public void theModalDialogShouldAppearWithTheTitle(String arg0) {
     }
+
 
     @When("the user click the {string} button in the modal")
     public void the_user_click_the_button_in_the_modal(String string) {
@@ -97,4 +95,6 @@ assertTrue("The prompt message area is not empty or in the default state. Found:
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
+
 }
