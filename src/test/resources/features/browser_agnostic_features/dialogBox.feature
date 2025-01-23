@@ -33,12 +33,12 @@ Feature: Button Functionalities
 
   Scenario: Verify the modal dialog updates the message when closed
     When the user click the "Launch modal" button
-    Then the modal dialog should appear
+    Then the modal dialog should appear with the title "Modal title"
     When the user click the "Close" button in the modal
     Then the text "You chose: Close" should appear in the modal message area
 
   Scenario: Verify the modal dialog updates the message when changes are saved
     When the user click the "Launch modal" button
-    Then the modal dialog should appear
+    Then the modal dialog should appear with the title "Modal title"
     When the user click the "Save changes" button in the modal
     Then the text "You chose: Save changes" should appear in the modal message area
