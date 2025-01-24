@@ -80,7 +80,9 @@ assertTrue("The prompt message area is not empty or in the default state. Found:
 
     }
     @Then("the modal dialog should appear with the title {string}")
-    public void theModalDialogShouldAppearWithTheTitle(String arg0) {
+    public void theModalDialogShouldAppearWithTheTitle(String expectedTitle) {
+        String actualTitle = dialogBoxPage.getModalDialogTitle();
+        assertEquals("The modal dialog title does not match the expected value.", expectedTitle, actualTitle);
     }
 
 
