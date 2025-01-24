@@ -108,4 +108,10 @@ public class DialogBoxPage extends BasePage {
     public String getPromptMessageText() {
         return promptText.getText();
     }
+
+    public String getModalDialogTitle() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(modalTitle));
+        return modalTitle.getText();
+    }
 }
