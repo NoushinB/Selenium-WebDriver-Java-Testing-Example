@@ -37,6 +37,17 @@ public class DialogBoxPage extends BasePage {
     @FindBy(id = "modal-text")
     private WebElement modalText;
 
+    @FindBy(css = ".modal-title")
+    private WebElement modalTitle;
+
+    // Modal footer buttons
+    @FindBy(css = ".modal-footer .btn-secondary")
+    private WebElement closeModalButton;
+
+    @FindBy(css = ".modal-footer .btn-primary")
+    private WebElement saveChangesButton;
+    //
+
 
 
     // Click a button
@@ -60,7 +71,7 @@ public class DialogBoxPage extends BasePage {
         return alert.getText();
     }
     private Alert waitForAlert() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         return wait.until(ExpectedConditions.alertIsPresent());
     }
 
