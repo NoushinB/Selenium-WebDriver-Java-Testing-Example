@@ -99,12 +99,12 @@ public class DialogBoxPage extends BasePage {
         alert.sendKeys(text);
 
         // Accept the prompt (equivalent to clicking "OK")
-        alert.accept();
+        //alert.accept();
     }
     public String getConfirmationMessageText() {
-
         return confirmText.getText();
     }
+
     public String getPromptMessageText() {
         return promptText.getText();
     }
