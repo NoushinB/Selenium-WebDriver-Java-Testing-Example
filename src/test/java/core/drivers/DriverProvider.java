@@ -47,7 +47,8 @@ public class DriverProvider {
      * Initializes the ChromeDriver.
      */
     private void initializeChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "D:/dev/drivers/chromedriver-win64/chromedriver.exe");
+        // It is already handled in @BeforeAll using WebDriverManager and it will be downloaded automatically
+        //System.setProperty("webdriver.chrome.driver", "D:/dev/drivers/chromedriver-win64/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         driver = new ChromeDriver(options);
@@ -57,7 +58,7 @@ public class DriverProvider {
      * Initializes the FirefoxDriver.
      */
     private void initializeFirefoxDriver() {
-        System.setProperty("webdriver.gecko.driver", "D:/drivers/geckodriver-v0.34.0-win32/geckodriver.exe");
+        // System.setProperty("webdriver.gecko.driver", "D:/drivers/geckodriver-v0.34.0-win32/geckodriver.exe");
         driver = new FirefoxDriver();
     }
 }

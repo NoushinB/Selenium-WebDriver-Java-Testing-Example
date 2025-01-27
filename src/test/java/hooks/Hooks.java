@@ -8,12 +8,20 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
     @BeforeAll
     public static void setup() {
+        // Initialize browsers web drivers
+        WebDriverManager.chromedriver().setup();
+        // WebDriverManager.firefoxdriver().setup();
+        // WebDriverManager.edgedriver().setup();
+        // WebDriverManager.operadriver().setup();
+        // WebDriverManager.iedriver().setup();
+
         // Any global setup for web testing
         PropertyLoader.getInstance().setBrowser(Constants.Browser.CHROME);
         PropertyLoader.getInstance().setBaseUrl(Constants.Urls.BASE_URL);
