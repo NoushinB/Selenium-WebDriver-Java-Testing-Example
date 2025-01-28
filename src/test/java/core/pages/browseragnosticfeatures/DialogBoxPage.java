@@ -57,6 +57,8 @@ public class DialogBoxPage extends BasePage {
             case "Launch confirm" -> launchConfirmButton;
             case "Launch prompt" -> launchPromptButton;
             case "Launch modal" -> launchModalButton;
+            case "Close" -> closeModalButton;
+            case "Save changes" -> saveChangesButton;
             default -> throw new IllegalArgumentException("Invalid button name: " + buttonName);
         };
     }
