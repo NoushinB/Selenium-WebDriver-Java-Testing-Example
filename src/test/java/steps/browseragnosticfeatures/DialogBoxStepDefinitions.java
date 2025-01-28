@@ -92,9 +92,9 @@ assertTrue("The prompt message area is not empty or in the default state. Found:
     }
 
     @Then("the text {string} should appear in the modal message area")
-    public void the_text_should_appear_in_the_modal_message_area(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_text_should_appear_in_the_modal_message_area(String expectedText) {
+        String actualText = dialogBoxPage.getModalMessageText();
+        assertEquals("The text in the modal message area does not match the expected value.", expectedText, actualText);
     }
 
 

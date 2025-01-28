@@ -116,4 +116,7 @@ public class DialogBoxPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(modalTitle));
         return modalTitle.getText();
     }
+    public String getModalMessageText() {
+        return modalText.getText();
+    }
 }
