@@ -87,9 +87,8 @@ assertTrue("The prompt message area is not empty or in the default state. Found:
 
 
     @When("the user click the {string} button in the modal")
-    public void the_user_click_the_button_in_the_modal(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_user_click_the_button_in_the_modal(String buttonName) {
+        dialogBoxPage.clickOnButton(buttonName);
     }
 
     @Then("the text {string} should appear in the modal message area")
