@@ -103,12 +103,16 @@ public class DialogBoxPage extends BasePage {
         // Accept the prompt (equivalent to clicking "OK")
         //alert.accept();
     }
+    // Generalized method to retrieve text from any WebElement
+    public String getMessageText(WebElement messageElement) {
+        return messageElement.getText();
+    }
     public String getConfirmationMessageText() {
-        return confirmText.getText();
+        return getMessageText(confirmText);
     }
 
     public String getPromptMessageText() {
-        return promptText.getText();
+        return getMessageText(promptText);
     }
 
     public String getModalDialogTitle() {
@@ -117,6 +121,6 @@ public class DialogBoxPage extends BasePage {
         return modalTitle.getText();
     }
     public String getModalMessageText() {
-        return modalText.getText();
+        return getMessageText(modalText);
     }
 }
