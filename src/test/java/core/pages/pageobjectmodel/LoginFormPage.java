@@ -32,5 +32,14 @@ public class LoginFormPage extends BasePage {
         usernameInput.sendKeys(username);
     }
 
+    /**
+     * Method to enter password.
+     * @param password - password that enter the input field.
+     */
+    public void enterPassword(String password) {
+        passwordInput.clear();
+        passwordInput.sendKeys(password);
+    }
+
 
 }
