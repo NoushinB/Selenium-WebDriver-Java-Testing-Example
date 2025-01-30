@@ -21,4 +21,16 @@ public class LoginFormPage extends BasePage {
     // Finding the invalid credentials alert by its ID
     @FindBy(id = "invalid")
     private WebElement invalidCredentialsAlert;
+
+
+    /**
+     * Method to enter username.
+     * @param username - username that enter into the input field.
+     */
+    public void enterUsername(String username) {
+        usernameInput.clear();
+        usernameInput.sendKeys(username);
+    }
+
+
 }
