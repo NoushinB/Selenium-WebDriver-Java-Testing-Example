@@ -13,7 +13,8 @@ public class LoginFormStepDefinitions {
     }
 
     @When("the user enters {string} in the username field")
-    public void the_user_enters_in_the_username_field(String string) {
+    public void the_user_enters_in_the_username_field(String userName) {
+        loginFormPage.enterUsername(userName);
 
     }
     @When("the user enters {string} in the password field")
