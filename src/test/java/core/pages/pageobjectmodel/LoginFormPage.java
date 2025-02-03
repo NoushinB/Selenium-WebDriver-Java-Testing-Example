@@ -22,6 +22,10 @@ public class LoginFormPage extends BasePage {
     @FindBy(id = "invalid")
     private WebElement invalidCredentialsAlert;
 
+    // Finding the success message alert by its ID
+    @FindBy(id = "success")
+    private WebElement successMessageAlert;
+
 
     /**
      * Method to enter username.
