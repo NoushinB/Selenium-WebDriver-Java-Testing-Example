@@ -41,5 +41,9 @@ public class LoginFormPage extends BasePage {
         passwordInput.sendKeys(password);
     }
 
+    public void clickOnsSubmitButton() {
+        submitButton.click();
+    }
+
 
 }
