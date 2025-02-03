@@ -22,9 +22,8 @@ public class LoginFormStepDefinitions {
         loginFormPage.enterPassword(password);
     }
     @When("the user clicks the {string} button")
-    public void the_user_clicks_the_button(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_user_clicks_the_button() {
+        loginFormPage.clickOnsSubmitButton();
     }
     @Then("the user should see {string}")
     public void the_user_should_see(String string) {
