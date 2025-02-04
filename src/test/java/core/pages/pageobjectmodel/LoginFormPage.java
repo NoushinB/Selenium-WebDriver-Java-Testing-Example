@@ -29,6 +29,7 @@ public class LoginFormPage extends BasePage {
 
     /**
      * Method to enter username.
+     *
      * @param username - username that enter into the input field.
      */
     public void enterUsername(String username) {
@@ -38,6 +39,7 @@ public class LoginFormPage extends BasePage {
 
     /**
      * Method to enter password.
+     *
      * @param password - password that enter the input field.
      */
     public void enterPassword(String password) {
@@ -45,8 +47,25 @@ public class LoginFormPage extends BasePage {
         passwordInput.sendKeys(password);
     }
 
-    public void clickOnsSubmitButton() {
+    public void clickOnSubmitButton() {
         submitButton.click();
+    }
+
+    public String getLoginMessage() {
+        if (isElementDisplayed(successMessageAlert)) {
+            return successMessageAlert.getText();
+        } else if (isElementDisplayed(invalidCredentialsAlert)) {
+            return invalidCredentialsAlert.getText();
+        }
+        return "No message displayed";
+    }
+
+    private boolean isElementDisplayed(WebElement element) {
+        try {
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false; // Handle cases where the element is not found or not visible
+        }
     }
 
 
