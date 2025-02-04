@@ -8,7 +8,7 @@ Feature: Login Functionality
   Scenario Outline: User attempts to log in with different credentials
     When the user enters "<username>" in the username field
     And the user enters "<password>" in the password field
-    And the user clicks the "Submit" button
+    And the user clicks the "submitButton" button
     Then the user should see "<message>"
 
     Examples:
