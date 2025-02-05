@@ -34,7 +34,7 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 - **Web Form Components**:  
   - Covers interaction with various form elements, including:  
     - Text inputs and password fields.  
-    - Dropdown menus (select and datalist).  
+    - Dropdown menus (select and data list).  
     - File uploads.  
     - Checkboxes and radio buttons.  
     - Date picker, color picker, and range slider components.  
@@ -42,9 +42,11 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 - **Navigation Page**:  
   - Validates button interactions and dynamic content updates.  
 
-- **Additional Scenarios**:  
-  - Tests advanced UI interactions, including:  
-    - Color selection using a color picker.  
-    - Date selection via a date picker.  
-    - Adjusting values with a range slider.  
+- **Login Functionality**:  
+  - Validates user authentication by testing login attempts with valid and invalid credentials.  
+  - Ensures appropriate success or error messages are displayed based on login attempts.  
 
+- **Button Functionalities**:  
+  - Verifies interactions with alert, confirm, and prompt dialogs.  
+  - Ensures correct messages are displayed when accepting, canceling, or inputting text in prompt dialogs.  
+  - Tests modal dialogs for expected behavior when closed or when changes are saved. 
