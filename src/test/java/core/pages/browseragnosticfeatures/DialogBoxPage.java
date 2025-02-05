@@ -49,7 +49,6 @@ public class DialogBoxPage extends BasePage {
     //
 
 
-
     // Click a button
     private WebElement getButton(String buttonName) {
         return switch (buttonName) {
@@ -66,12 +65,14 @@ public class DialogBoxPage extends BasePage {
     public void clickOnButton(String buttonName) {
         getButton(buttonName).click();
     }
+
     public String getAlertText() {
         // Switch to the alert
         Alert alert = driver.switchTo().alert();
         // Get the text of the alert
         return alert.getText();
     }
+
     private Alert waitForAlert() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         return wait.until(ExpectedConditions.alertIsPresent());
@@ -93,6 +94,7 @@ public class DialogBoxPage extends BasePage {
         Alert alert = waitForAlert();
         alert.dismiss();
     }
+
     public void typeIntoPromptDialog(String text) {
         // Wait for the prompt dialog to appear
         Alert alert = waitForAlert();
@@ -103,10 +105,12 @@ public class DialogBoxPage extends BasePage {
         // Accept the prompt (equivalent to clicking "OK")
         //alert.accept();
     }
+
     // Generalized method to retrieve text from any WebElement
     public String getMessageText(WebElement messageElement) {
         return messageElement.getText();
     }
+
     public String getConfirmationMessageText() {
         return getMessageText(confirmText);
     }
@@ -120,6 +124,7 @@ public class DialogBoxPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(modalTitle));
         return modalTitle.getText();
     }
+
     public String getModalMessageText() {
         return getMessageText(modalText);
     }

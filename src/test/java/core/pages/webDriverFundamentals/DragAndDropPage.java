@@ -17,12 +17,11 @@ public class DragAndDropPage extends BasePage {
     }
 
 
-
-    public void dragAndDropElement(){
-        actions.dragAndDrop(draggableElement,targetElement).build().perform();
+    public void dragAndDropElement() {
+        actions.dragAndDrop(draggableElement, targetElement).build().perform();
     }
 
-    public boolean isElementAtTarget(){
+    public boolean isElementAtTarget() {
         return draggableElement.getLocation().equals(targetElement.getLocation());
     }
 

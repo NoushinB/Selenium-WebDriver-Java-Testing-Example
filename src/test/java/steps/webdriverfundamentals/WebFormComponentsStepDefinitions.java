@@ -192,13 +192,13 @@ public class WebFormComponentsStepDefinitions {
     @When("User selects the date {string} from the date picker")
     public void userSelectsTheDateFromTheDatePicker(String date) {
         webFormComponentsPage.setDatePickerValue(date);
-        
+
     }
 
     @Then("the date picker should display {string}")
     public void theDatePickerShouldDisplay(String expectedDate) {
-        String actualDate=webFormComponentsPage.getDatePickerValue();
-        Assert.assertEquals(expectedDate,actualDate);
+        String actualDate = webFormComponentsPage.getDatePickerValue();
+        Assert.assertEquals(expectedDate, actualDate);
 
     }
 
@@ -206,14 +206,14 @@ public class WebFormComponentsStepDefinitions {
     public void userMovesTheRangeSliderToAValueOf(String value) {
         int number = Integer.valueOf(value);
         webFormComponentsPage.adjustRangeSliderTo(number);
-        
+
     }
 
     @Then("the range input should display a value of {string}")
     public void theRangeInputShouldDisplayAValueOf(String expectedValue) {
-        int number=Integer.parseInt(expectedValue);
-        int actualValue= Integer.parseInt(webFormComponentsPage.getRangeSliderValue());
-        Assert.assertEquals(number,actualValue);
+        int number = Integer.parseInt(expectedValue);
+        int actualValue = Integer.parseInt(webFormComponentsPage.getRangeSliderValue());
+        Assert.assertEquals(number, actualValue);
 
     }
 }

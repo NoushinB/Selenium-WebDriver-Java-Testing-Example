@@ -74,11 +74,12 @@ public class DialogBoxStepDefinitions {
 
         // Define the expected default state (assuming it's an empty string or some default value like "No input")
         String defaultState = "You typed: null"; // Update this value if there's a default message in your application
-assertTrue("The prompt message area is not empty or in the default state. Found: " + actualText,
-        actualText.isEmpty() || actualText.equals(defaultState));
+        assertTrue("The prompt message area is not empty or in the default state. Found: " + actualText,
+                actualText.isEmpty() || actualText.equals(defaultState));
 
 
     }
+
     @Then("the modal dialog should appear with the title {string}")
     public void theModalDialogShouldAppearWithTheTitle(String expectedTitle) {
         String actualTitle = dialogBoxPage.getModalDialogTitle();

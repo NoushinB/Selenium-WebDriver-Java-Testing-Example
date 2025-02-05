@@ -17,10 +17,12 @@ public class LoginFormStepDefinitions {
         loginFormPage.enterUsername(userName);
 
     }
+
     @When("the user enters {string} in the password field")
     public void the_user_enters_in_the_password_field(String password) {
         loginFormPage.enterPassword(password);
     }
+
     @When("the user clicks the {string} button")
     public void the_user_clicks_the_button(String buttonName) {
         if (buttonName.equalsIgnoreCase("submitButton")) {
@@ -29,9 +31,10 @@ public class LoginFormStepDefinitions {
             throw new IllegalArgumentException("Unknown button: " + buttonName);
         }
     }
+
     @Then("the user should see {string}")
     public void the_user_should_see(String string) {
-       loginFormPage.getLoginMessage();
+        loginFormPage.getLoginMessage();
     }
 
 }
