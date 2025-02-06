@@ -49,4 +49,140 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 - **Button Functionalities**:  
   - Verifies interactions with alert, confirm, and prompt dialogs.  
   - Ensures correct messages are displayed when accepting, canceling, or inputting text in prompt dialogs.  
-  - Tests modal dialogs for expected behavior when closed or when changes are saved. 
+  - Tests modal dialogs for expected behavior when closed or when changes are saved.
+ 
+ 
+## Class Structure:
+
+### `core.drivers`
+
+- **`DriverManager`**
+  - Manages web driver instances for multiple threads.
+  - Likely includes methods for creating, getting, and removing WebDriver instances in a thread-safe manner.
+
+- **`DriverProvider`**
+  - Provides the necessary WebDriver instances (like Chrome or Firefox).
+  - Handles configurations like ChromeOptions for setting up the driver (i.e., headless mode, browser-specific properties, etc.).
+  - Likely manages different browsers and timeout configurations.
+
+---
+
+### `core.library`
+
+- **`Constants`**
+  - Contains static final variables used throughout the test, such as timeouts, URL constants, browser names, etc.
+
+- **`PropertyLoader`**
+  - A Singleton class designed to load configuration properties (i.e., from `.properties` files) and ensure that only one instance of the class is used throughout the tests.
+  - Ensures centralized and controlled access to configuration values.
+
+---
+
+### `core.pages.browseragnosticfeatures`
+
+- **`DialogBoxPage`**
+  - A Page Object that deals with browser-agnostic features like dialog boxes.
+  - Contains logic for interacting with alerts and dialog elements (using `Alert` and `WebDriverWait`).
+
+- **`InfiniteScrollingPage`**
+  - A Page Object handling infinite scroll features in the web application.
+  - Contains interactions and waits that are unique to infinite scrolling scenarios.
+
+---
+
+### `core.pages.common`
+
+- **`BasePage`**
+  - The base class for all pages that could have common elements or actions that every page shares.
+  - Most likely, this class contains a constructor for page factory initialization (with `PageFactory.initElements(driver, this)`).
+  - Also includes driver and WebDriver-specific methods.
+
+---
+
+### `core.pages.pageobjectmodel`
+
+- **`LoginFormPage`**
+  - A Page Object model for login form interactions (like entering credentials, clicking login buttons, etc.).
+  - Contains specific methods for interacting with the login form.
+
+---
+
+### `core.pages.webDriverFundamentals.webform_components`
+
+- **`WebFormComponentsPage`**
+  - A Page Object for handling form components such as text fields, checkboxes, dropdowns, etc.
+  - Includes elements like `WebFormTextElement` to distinguish different types of form inputs.
+
+- **`WebFormTextElement` (Enum)**
+  - An enumeration that identifies different types of text-based form fields like `PASSWORD`, `TEXT`, and `TEXT_AREA`.
+
+---
+
+### `core.pages.webDriverFundamentals`
+
+- **`DragAndDropPage`**
+  - A Page Object dedicated to drag-and-drop interactions.
+  - Contains logic to simulate drag-and-drop events using WebDriver.
+
+- **`DropDownMenuPage`**
+  - A Page Object for interacting with dropdown menus in the web application.
+  - Includes methods for selecting items from dropdowns and checking the current selection.
+
+- **`HomePage`**
+  - A Page Object for the main or home page of the web application.
+  - Contains methods for interacting with elements on the home page.
+
+- **`NavigationPage`**
+  - A Page Object for handling navigation-related elements or interactions on the site (like menus or sidebars).
+
+---
+
+### `hooks`
+
+- **`Hooks`**
+  - A Cucumber hook class that initializes or terminates the test execution.
+  - Contains methods annotated with `@Before` and `@After` to set up or tear down things like WebDriver instances before and after the tests.
+
+---
+
+### `steps.browseragnosticfeatures`
+
+- **`DialogBoxStepDefinitions`**
+  - Step definition class that defines the steps for handling dialog boxes in tests.
+  - Steps might include clicking buttons on the dialog, verifying alert messages, etc.
+
+- **`InfiniteScrollingStepDefinitions`**
+  - Step definition class that defines steps for interacting with infinite scrolling pages, such as scrolling until an element is visible.
+
+---
+
+### `steps.pageobjectmodel`
+
+- **`LoginFormStepDefinitions`**
+  - Step definition class with steps to interact with the login form (filling out username/password fields and submitting the form).
+
+---
+
+### `steps.webdriverfundamentals`
+
+- **`DragAndDropStepDefinitions`**
+  - Step definition class for defining actions related to drag-and-drop functionality.
+   
+- **`DropDownMenuStepDefinitions`**
+  - Step definition class that includes steps for interacting with dropdown menus in the tests.
+
+- **`HomeStepDefinitions`**
+  - Step definition class for testing interactions on the home page.
+   
+- **`NavigationStepDefinitions`**
+  - Step definition class for interactions related to navigation elements.
+
+- **`WebFormComponentsStepDefinitions`**
+  - Step definition class for interacting with web form components like input fields, buttons, and dropdowns.
+
+---
+
+### `RunCucumberTest`
+- The test runner class that uses Cucumber to run the tests.
+- Defines the location of feature files and configures reporting options for the test execution.
+
