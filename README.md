@@ -186,3 +186,18 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 - The test runner class that uses Cucumber to run the tests.
 - Defines the location of feature files and configures reporting options for the test execution.
 
+
+  ## Test Reports
+
+After running the tests, you can find the test execution reports in the `target` directory. The reports are generated in HTML format, providing a detailed overview of the test results.
+
+![Test Report ](https://github.com/NoushinB/Selenium-WebDriver-Java-Testing-Example/blob/master/src/test/resources/files/report.png) 
+
+---
+
+## Test Execution Demo
+    
+
+[![Watch the RestAssured-API-Testing DEMO](https://github.com/NoushinB/Selenium-WebDriver-Java-Testing-Example/blob/master/src/test/resources/files/report.png?raw=true)](https://youtu.be/USy0EVfLg2s)
+
+
