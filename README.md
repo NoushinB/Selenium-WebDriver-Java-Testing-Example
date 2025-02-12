@@ -198,6 +198,6 @@ After running the tests, you can find the test execution reports in the `target`
 ## Test Execution Demo
     
 
-[![Watch the RestAssured-API-Testing DEMO](https://github.com/NoushinB/Selenium-WebDriver-Java-Testing-Example/blob/master/src/test/resources/files/report.png?raw=true)](https://youtu.be/USy0EVfLg2s)
+[![Watch the RestAssured-API-Testing DEMO](https://github.com/NoushinB/Selenium-WebDriver-Java-Testing-Example/blob/master/src/test/resources/files/Demo.png?raw=true)](https://youtu.be/USy0EVfLg2s)
 
 
