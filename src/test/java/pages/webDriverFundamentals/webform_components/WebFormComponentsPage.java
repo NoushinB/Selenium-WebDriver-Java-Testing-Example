@@ -1,6 +1,6 @@
-package core.pages.webDriverFundamentals.webform_components;
+package pages.webDriverFundamentals.webform_components;
 
-import core.pages.common.BasePage;
+import pages.common.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

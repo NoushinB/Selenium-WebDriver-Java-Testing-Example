@@ -1,6 +1,6 @@
-package core.pages.browseragnosticfeatures;
+package pages.browseragnosticfeatures;
 
-import core.pages.common.BasePage;
+import pages.common.BasePage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

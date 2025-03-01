@@ -1,4 +1,4 @@
-package core.pages.common;
+package pages.common;
 
 import core.drivers.DriverManager;
 import org.openqa.selenium.WebDriver;

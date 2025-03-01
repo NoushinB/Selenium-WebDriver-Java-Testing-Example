@@ -1,6 +1,6 @@
 package steps.browseragnosticfeatures;
 
-import core.pages.browseragnosticfeatures.DialogBoxPage;
+import pages.browseragnosticfeatures.DialogBoxPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

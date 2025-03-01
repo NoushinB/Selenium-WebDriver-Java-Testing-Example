@@ -1,6 +1,6 @@
 package steps.browseragnosticfeatures;
 
-import core.pages.browseragnosticfeatures.InfiniteScrollingPage;
+import pages.browseragnosticfeatures.InfiniteScrollingPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

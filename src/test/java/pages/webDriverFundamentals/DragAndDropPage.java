@@ -1,6 +1,6 @@
-package core.pages.webDriverFundamentals;
+package pages.webDriverFundamentals;
 
-import core.pages.common.BasePage;
+import pages.common.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;

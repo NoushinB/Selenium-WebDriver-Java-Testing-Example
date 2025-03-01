@@ -1,4 +1,4 @@
-package core.pages.webDriverFundamentals.webform_components;
+package pages.webDriverFundamentals.webform_components;
 
 public enum WebFormTextElement {
     PASSWORD,

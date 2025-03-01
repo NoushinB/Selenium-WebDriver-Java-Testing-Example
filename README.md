@@ -78,7 +78,7 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 
 ---
 
-### `core.pages.browseragnosticfeatures`
+### `pages.browseragnosticfeatures`
 
 - **`DialogBoxPage`**
   - A Page Object that deals with browser-agnostic features like dialog boxes.
@@ -90,7 +90,7 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 
 ---
 
-### `core.pages.common`
+### `pages.common`
 
 - **`BasePage`**
   - The base class for all pages that could have common elements or actions that every page shares.
@@ -99,7 +99,7 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 
 ---
 
-### `core.pages.pageobjectmodel`
+### `pages.pageobjectmodel`
 
 - **`LoginFormPage`**
   - A Page Object model for login form interactions (like entering credentials, clicking login buttons, etc.).
@@ -107,7 +107,7 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 
 ---
 
-### `core.pages.webDriverFundamentals.webform_components`
+### `pages.webDriverFundamentals.webform_components`
 
 - **`WebFormComponentsPage`**
   - A Page Object for handling form components such as text fields, checkboxes, dropdowns, etc.
@@ -118,7 +118,7 @@ This repository includes comprehensive Cucumber feature files written in Gherkin
 
 ---
 
-### `core.pages.webDriverFundamentals`
+### `pages.webDriverFundamentals`
 
 - **`DragAndDropPage`**
   - A Page Object dedicated to drag-and-drop interactions.
